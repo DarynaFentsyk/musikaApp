@@ -78,7 +78,6 @@ class FavoritsViewController: UICollectionViewController, UICollectionViewDelega
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -114,13 +113,7 @@ class FavoritsViewController: UICollectionViewController, UICollectionViewDelega
         let size = (view.frame.size.width-12)/2
         return CGSize(width: size, height: size)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets{
-//
-//        return UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
-//
-//        }
-    
+
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detVC = storyboard?.instantiateViewController(withIdentifier: "DetailsFavouriteTableViewController") as? DetailsFavouriteTableViewController
         
