@@ -72,7 +72,8 @@ class LastFmApiService: NSObject {
     }
     
     func loadImage (imageCache: AutoPurgingImageCache, imageURL: String, defaultImage: UIImage, completion: @escaping (UIImage) -> Void) {
-        if(imageURL.isEmpty){
+        
+        if imageURL.isEmpty {
             completion(defaultImage)
             return
                 

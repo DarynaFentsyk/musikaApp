@@ -9,15 +9,15 @@
 import UIKit
 import RealmSwift
 
-class SavedTopAlbumDetails: Object {
+final class DBAlbumDetailsModel: Object {
     
     @objc dynamic var name: String = ""
     @objc dynamic var artist: String = ""
     @objc dynamic var images: String = ""
-    @objc dynamic var tracks: String = ""
-    @objc dynamic var wiki: String?
+    var tracks = List<DBTrackModel>()
     
 }
+
 
 
 

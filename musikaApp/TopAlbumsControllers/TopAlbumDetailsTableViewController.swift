@@ -18,6 +18,13 @@ class TopAlbumDetailsTableViewController: UITableViewController {
     @IBOutlet weak var selectedAlbumName: UILabel!
     @IBOutlet weak var selectedAlbumTracks: UILabel!
     
+    @IBOutlet weak var someLabel: UILabel!
+    
+    @IBOutlet weak var hghghghg: UILabel!
+    @IBAction func didTapSomeButton(_ sender: Any) {
+        
+    }
+    
     var selectedAlbumPhoto: String = ""
     var albumNameSelected: String = ""
     var selectedSingerName: String = ""

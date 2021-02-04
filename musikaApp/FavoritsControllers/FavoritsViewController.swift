@@ -12,8 +12,8 @@ import RealmSwift
 
 private let reuseIdentifier = "FavoritsCell"
 
-var favoriteAlbums:[SavedTopAlbumDetails] = []
-var filteredAlbums: [SavedTopAlbumDetails] = []
+var favoriteAlbums:[AlbumDetailsModel] = []
+var filteredAlbums: [AlbumDetailsModel] = []
 
 class FavoritsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout  {
     
@@ -28,8 +28,23 @@ class FavoritsViewController: UICollectionViewController, UICollectionViewDelega
         return search.isActive && !isSearchBarEmpty
     }
     
+//    @objc func getData() {
+//
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // option 1
+       // let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+            
+      //  }
+      //  timer.invalidate()
+        
+        
+        // topion 2
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        perform(#selector(updateSearchResults), with: nil, afterDelay: 2.0)
         
         self.navigationItem.searchController = search
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -47,8 +62,11 @@ class FavoritsViewController: UICollectionViewController, UICollectionViewDelega
         guard let realm = Realm.safeInit() else {
             return
         }
-        let result = realm.objects(SavedTopAlbumDetails.self)
-        favoriteAlbums = Array(result)
+        let dbModels = Array(realm.objects(DBAlbumDetailsModel.self))
+        let mapper: AlbumDetailsModelMapperProtocol = AlbumDetailsModelMapper()
+//        mapper.mapDBToUi(dbAlbumDetails: <#T##DBAlbumDetailsModel#>)
+        let result = dbModels.map(mapper.mapDBToUi)
+        favoriteAlbums = result
     }
     
     func filterContent(_ searchText:String)  {
@@ -135,8 +153,11 @@ class FavoritsViewController: UICollectionViewController, UICollectionViewDelega
 }
 
 extension FavoritsViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
+    @objc func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContent(searchBar.text!)
+        
+        
+        
     }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fsV-Wb-RM9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="onM-QV-uUq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +13,7 @@
             <objects>
                 <collectionViewController id="e1a-fK-HJq" customClass="FavoritsViewController" customModule="musikaApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="0e3-Uf-Dr3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AdS-aw-GYw">
@@ -23,7 +23,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoritsCell" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-f8-mcr" customClass="FavoritsCell" customModule="musikaApp" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" reuseIdentifier="FavoritsCell" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-f8-mcr" customClass="FavoritsCell" customModule="musikaApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4B1-h3-UKK">
@@ -211,25 +211,6 @@
             </objects>
             <point key="canvasLocation" x="1180" y="-251"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="y2H-jO-lVA">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fsV-Wb-RM9" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ZL4-X8-6co">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="83"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="onM-QV-uUq" kind="relationship" relationship="viewControllers" id="HAy-jB-oyO"/>
-                        <segue destination="XpA-ua-Lsi" kind="relationship" relationship="viewControllers" id="Jyk-tp-CcG"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7xp-Th-64U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="273.91304347826087" y="238.39285714285714"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="wb3-Cy-EEJ">
             <objects>
@@ -254,7 +235,7 @@
             <objects>
                 <tableViewController id="wcf-m7-0PE" customClass="SearchTableViewController" customModule="musikaApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="X9w-Kd-deI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -324,7 +305,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopAlbumsCollectionViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="889-nb-7at" customClass="TopAlbumsCollectionViewCell" customModule="musikaApp" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" reuseIdentifier="TopAlbumsCollectionViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="889-nb-7at" customClass="TopAlbumsCollectionViewCell" customModule="musikaApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vWv-0g-gJs">
@@ -407,8 +388,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvf-p4-JBG">
-                                                    <rect key="frame" x="8" y="0.0" width="398" height="44"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Artist name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvf-p4-JBG">
+                                                    <rect key="frame" x="8" y="-1" width="398" height="44"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -482,14 +463,22 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="eXD-df-igp"/>
+                    <navigationItem key="navigationItem" id="eXD-df-igp">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="qBA-Jz-F15">
+                            <connections>
+                                <action selector="didTapSomeButton:" destination="qjr-rZ-7Tc" id="9aR-Mh-9Yy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="albumCover" destination="jaC-rW-CRR" id="Awt-IA-Ujt"/>
+                        <outlet property="hghghghg" destination="Rvf-p4-JBG" id="mHl-qC-a0F"/>
                         <outlet property="selectedAlbumName" destination="qHU-ak-rPO" id="rRf-bn-P6y"/>
                         <outlet property="selectedAlbumTracks" destination="a0q-GG-AVS" id="p95-pt-ucw"/>
                         <outlet property="singerName" destination="Rvf-p4-JBG" id="Wkd-2Q-Uda"/>
+                        <outlet property="someLabel" destination="Rvf-p4-JBG" id="m81-YW-dhI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dw7-hn-QBd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
