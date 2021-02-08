@@ -11,9 +11,14 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var albumCoverImage: UIImageView!
     @IBOutlet weak var albumCoverName: UILabel!
+    
+    
     override func awakeFromNib() {
+        
         super.awakeFromNib()
-        // Initialization code
+
+        albumCoverName.text = "Text"
+        
     }
 
 }
