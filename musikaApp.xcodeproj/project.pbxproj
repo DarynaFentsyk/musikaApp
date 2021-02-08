@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		711E04B025D168C400FF2287 /* MusikManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711E04AF25D168C400FF2287 /* MusikManager.swift */; };
+		711E04B325D1761400FF2287 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711E04B225D1761400FF2287 /* DBService.swift */; };
 		713034DF256EEE1500697149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713034DE256EEE1500697149 /* AppDelegate.swift */; };
 		713034E1256EEE1500697149 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713034E0256EEE1500697149 /* SceneDelegate.swift */; };
 		713034E6256EEE1500697149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 713034E4256EEE1500697149 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		09C0D5A1B9F162CA3AC335B8 /* Pods_musikaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_musikaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		711E04AF25D168C400FF2287 /* MusikManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusikManager.swift; sourceTree = "<group>"; };
+		711E04B225D1761400FF2287 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		713034DB256EEE1500697149 /* musikaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musikaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		713034DE256EEE1500697149 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		713034E0256EEE1500697149 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		713034D2256EEE1500697149 = {
 			isa = PBXGroup;
 			children = (
+				711E04B225D1761400FF2287 /* DBService.swift */,
 				711E04AF25D168C400FF2287 /* MusikManager.swift */,
 				71E04C7925D1567900CA73CF /* Constants.swift */,
 				71E04C7625D1510E00CA73CF /* LastFMService.swift */,
@@ -422,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71E04C7325D145A000CA73CF /* NetworkLayer.swift in Sources */,
+				711E04B325D1761400FF2287 /* DBService.swift in Sources */,
 				71E04C7A25D1567900CA73CF /* Constants.swift in Sources */,
 				718D2E0E25CAE94D0082ADEE /* APIImageModel.swift in Sources */,
 				7174392025CC241E00038B9E /* ArtistModelMapper.swift in Sources */,

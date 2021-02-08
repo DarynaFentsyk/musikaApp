@@ -28,7 +28,8 @@ final class AlbumDetailsModelMapper: AlbumDetailsModelMapperProtocol {
         
         let mapper = TrackModelMapper()
 
-        return AlbumDetailsModel(name: apiAlbumDetails.name,
+        return AlbumDetailsModel(id: apiAlbumDetails.mbid ?? "",
+                                 name: apiAlbumDetails.name,
                                  artist: apiAlbumDetails.artist.name,
                                  imageURl: URL(string: imageUrl ?? ""),
                                  tracks: apiTracks.map(mapper.mapAPIToUI))
@@ -44,6 +45,7 @@ final class AlbumDetailsModelMapper: AlbumDetailsModelMapperProtocol {
         dbTracks.append(objectsIn: tracks.map { mapper.mapUIToDB(track: $0) })
         
         let dbAlbum = DBAlbumDetailsModel()
+        dbAlbum.id = album.id
         dbAlbum.name = album.name
         dbAlbum.artist = album.artist
         dbAlbum.images = album.imageURl?.absoluteString ?? ""
@@ -59,7 +61,8 @@ final class AlbumDetailsModelMapper: AlbumDetailsModelMapperProtocol {
         
         let tracks: [TrackModel] = dbAlbumDetails.tracks.map(mapper.mapDBtoUI)
         
-        let albumDetailsModel = AlbumDetailsModel(name: dbAlbumDetails.name,
+        let albumDetailsModel = AlbumDetailsModel(id: dbAlbumDetails.id,
+                                                  name: dbAlbumDetails.name,
                                                   artist: dbAlbumDetails.artist,
                                                   imageURl: URL(string: dbAlbumDetails.images),
                                                   tracks: tracks)

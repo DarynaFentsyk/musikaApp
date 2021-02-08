@@ -9,6 +9,7 @@ import Foundation
 
 struct AlbumModel {
     
+    let id: String
     let name: String
     let artist: String
     let imageUrl: URL?

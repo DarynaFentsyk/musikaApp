@@ -9,12 +9,15 @@ import Foundation
 
 struct APIAlbumDetailsModel: Codable {
     
+    let mbid: String?
     let name: String
     let artist: APIArtistModel
     let images: [APIImageModel]
     let tracks: APITracksModel
     
     enum CodingKeys: String, CodingKey {
+        
+        case mbid
         case name
         case artist
         case images = "image"

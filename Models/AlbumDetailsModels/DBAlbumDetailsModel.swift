@@ -11,10 +11,15 @@ import RealmSwift
 
 final class DBAlbumDetailsModel: Object {
     
-    @objc dynamic var name: String = ""
-    @objc dynamic var artist: String = ""
-    @objc dynamic var images: String = ""
+    @objc dynamic var id = ""
+    @objc dynamic var name = ""
+    @objc dynamic var artist = ""
+    @objc dynamic var images = ""
     var tracks = List<DBTrackModel>()
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
     
 }
 

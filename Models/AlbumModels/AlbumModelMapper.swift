@@ -12,9 +12,10 @@ final class AlbumModelMapper {
     func mapAPIToUI (apiAlbum: APIAlbumModel) -> AlbumModel {
         
         let imageUrl = apiAlbum.images.filter({$0.size == "large"}).first?.text
-        return AlbumModel(name: apiAlbum.name,
-                               artist: apiAlbum.artist.name,
-                               imageUrl: URL(string: imageUrl ?? ""))
+        return AlbumModel(id: apiAlbum.mbid ?? "",
+                          name: apiAlbum.name,
+                          artist: apiAlbum.artist.name,
+                          imageUrl: URL(string: imageUrl ?? ""))
         
     }
     
