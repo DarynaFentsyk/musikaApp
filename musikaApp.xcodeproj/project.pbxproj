@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		711E04B025D168C400FF2287 /* MusikManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711E04AF25D168C400FF2287 /* MusikManager.swift */; };
 		713034DF256EEE1500697149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713034DE256EEE1500697149 /* AppDelegate.swift */; };
 		713034E1256EEE1500697149 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713034E0256EEE1500697149 /* SceneDelegate.swift */; };
 		713034E6256EEE1500697149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 713034E4256EEE1500697149 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		09C0D5A1B9F162CA3AC335B8 /* Pods_musikaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_musikaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		711E04AF25D168C400FF2287 /* MusikManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusikManager.swift; sourceTree = "<group>"; };
 		713034DB256EEE1500697149 /* musikaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musikaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		713034DE256EEE1500697149 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		713034E0256EEE1500697149 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		713034D2256EEE1500697149 = {
 			isa = PBXGroup;
 			children = (
+				711E04AF25D168C400FF2287 /* MusikManager.swift */,
 				71E04C7925D1567900CA73CF /* Constants.swift */,
 				71E04C7625D1510E00CA73CF /* LastFMService.swift */,
 				71E04C7225D145A000CA73CF /* NetworkLayer.swift */,
@@ -443,6 +446,7 @@
 				715F40792577DC2D00BDBC23 /* APITrackModel.swift in Sources */,
 				713034F8256EF50D00697149 /* FavoritsViewController.swift in Sources */,
 				7174395C25CD489B00038B9E /* HomeCollectionViewDataSource.swift in Sources */,
+				711E04B025D168C400FF2287 /* MusikManager.swift in Sources */,
 				718D2E0A25CAD2A30082ADEE /* SearchCollectionViewCell.swift in Sources */,
 				713034FB256EF70600697149 /* FavoritsCell.swift in Sources */,
 				718D2E2525CAFD3B0082ADEE /* TrackModel.swift in Sources */,
