@@ -14,8 +14,11 @@ final class HomeCollectionViewDataSource: NSObject {
         static let numberOfColumns: CGFloat = 2
     }
     
+    typealias DidSelectClosure = (_ album: AlbumModel) -> Void
+    
     private weak var collectionView: UICollectionView!
     private var albums: [AlbumModel] = []
+    var didSelectClosure: DidSelectClosure?
   
     required init(collectionView: UICollectionView) {
             super.init()
@@ -43,6 +46,9 @@ extension HomeCollectionViewDataSource: UICollectionViewDataSource {
     func collectionView(_ _collectionView:UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
                 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath)
+        
+        let album = self.albums[indexPath.item]
+        let cellModel = SearchCollectionViewCell.M
         
         return cell
     }

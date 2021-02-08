@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SearchCollectionViewCell: UICollectionViewCell {
+final class SearchCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var albumCoverImage: UIImageView!
+    @IBOutlet weak var albumCoverImage: PlaceholderImageView!
     @IBOutlet weak var albumCoverName: UILabel!
     
     
@@ -21,4 +21,19 @@ class SearchCollectionViewCell: UICollectionViewCell {
         
     }
 
+}
+
+extension SearchCollectionViewCell: ViewConfigurable {
+    
+    
+    struct Model {
+        let imageURL: URL?
+        let title: String
+    }
+    
+    func configurate(model: Model) {
+        
+        self.albumCoverImage.imgUrl = model.imageURL
+        self.albumCoverName.text = model.title
+    }
 }
