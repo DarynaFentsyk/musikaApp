@@ -28,7 +28,8 @@ final class HomeCollectionViewDataSource: NSObject {
             self.collectionView.dataSource = self
             self.collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
         }
-//    what this functon is updating? Collectionview? When?
+    
+    
     func update(withAlbums albums: [AlbumModel]) {
             self.albums = albums
             self.collectionView.reloadData()
@@ -37,32 +38,37 @@ final class HomeCollectionViewDataSource: NSObject {
 
 extension HomeCollectionViewDataSource: UICollectionViewDataSource {
     
-    func collectionView(_ _collectionView:UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return self.albums.count
         
     }
     
-    func collectionView(_ _collectionView:UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-                
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as! SearchCollectionViewCell
         
         let album = self.albums[indexPath.item]
-        let cellModel = SearchCollectionViewCell.M
-        
+        let cellModel = SearchCollectionViewCell.Model(imageURL: album.imageUrl, title: album.name)
+        cell.configure(model: cellModel)
         return cell
     }
 }
 
 extension HomeCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let cellWidth = collectionView.frame.size.width / Const.numberOfColumns
-//
-//        return cellWidth
-//    }
     
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.didSelectClosure?(self.albums[indexPath.item])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let cellWidth = collectionView.frame.size.width / Const.numberOfColumns
+        let labelHeight = cellWidth / 4
+        
+        return CGSize(width: cellWidth, height: cellWidth + labelHeight)
+    }
+    
 }
 

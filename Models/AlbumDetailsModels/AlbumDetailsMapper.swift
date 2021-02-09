@@ -15,10 +15,13 @@ protocol AlbumDetailsModelMapperProtocol {
     func mapDBToUi(dbAlbumDetails: DBAlbumDetailsModel) -> AlbumDetailsModel
 }
 
-final class AlbumDetailsModelMapper: AlbumDetailsModelMapperProtocol {
+final class AlbumDetailsModelMapper {
     
-    func test() {
+    private let trackModelMapper: TrackModelMapperProtocol
+    
+    init(trackModelMapper: TrackModelMapperProtocol) {
         
+        self.trackModelMapper = trackModelMapper
     }
     
     func mapAPIToUI (apiAlbumDetails: APIAlbumDetailsModel) -> AlbumDetailsModel {

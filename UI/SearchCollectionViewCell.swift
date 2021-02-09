@@ -25,15 +25,18 @@ final class SearchCollectionViewCell: UICollectionViewCell {
 
 extension SearchCollectionViewCell: ViewConfigurable {
     
-    
     struct Model {
         let imageURL: URL?
         let title: String
     }
     
-    func configurate(model: Model) {
+    func configure(model: Model) {
         
         self.albumCoverImage.imgUrl = model.imageURL
         self.albumCoverName.text = model.title
     }
+    
+
+    
+
 }

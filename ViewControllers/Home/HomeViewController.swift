@@ -12,6 +12,8 @@ protocol HomeViewControllerProtocol: UIViewController {
     func showAlbums(albums: [AlbumModel])
 }
 
+
+
 final class HomeViewController: BaseViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -31,17 +33,38 @@ final class HomeViewController: BaseViewController {
         
     }
     
+    static func make(logicController: HomeLogicControllerProtocol) -> HomeViewControllerProtocol {
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        logicController.view = vc
+        vc.logicController = logicController
+        
+        return vc
+        
+    }
+    
     private func setupUI() {
         self.dataSource = HomeCollectionViewDataSource(collectionView: self.collectionView)
+        self.dataSource.didSelectClosure = { [weak self] album in
+            
+            guard let self = self else{
+                return
+            }
+          
+        }
+        
+    }
+    
+    private func showAlbumDetails(withAlbum album: AlbumDetailsModel) {
+        
         
     }
     
 }
 
-extension HomeLogicController: HomeLogicControllerProtocol {
-    
-    func showAlbum(albums: [AlbumModel]) {
+extension HomeViewController: HomeViewControllerProtocol {
+    func showAlbums(albums: [AlbumModel]) {
         self.dataSource.update(withAlbums: albums)
     }
-    
 }
+

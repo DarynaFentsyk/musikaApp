@@ -7,9 +7,18 @@
 
 import Foundation
 
-final class TrackModelMapper {
+protocol TrackModelMapperProtocol {
     
-    func mapAPIToUI (apiTrack: APITrackModel) -> TrackModel {
+    func mapAPIToUI (apiTrack: APITrackModel) -> TrackModel
+    func mapUIToDB(track: TrackModel) -> DBTrackModel
+    func mapDBtoUI(dbTrack: DBTrackModel) -> TrackModel
+    
+}
+
+final class TrackModelMapper: TrackModelMapperProtocol {
+    
+    
+    func mapAPIToUI(apiTrack: APITrackModel) -> TrackModel {
         
         let trackModelMapper = TrackModel(name: apiTrack.name)
         

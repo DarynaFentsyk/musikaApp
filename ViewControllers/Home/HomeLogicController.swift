@@ -8,8 +8,10 @@
 import Foundation
 
 protocol HomeLogicControllerProtocol: class {
+    
     var view: HomeViewControllerProtocol? { get set }
     func loadSavedAlbums()
+    
 }
 
 final class HomeLogicController {
@@ -36,7 +38,9 @@ extension HomeLogicController: HomeLogicControllerProtocol {
             
             switch result {
             case.success(let albums):
-                self?.view.show
+                self?.view?.showAlbums(albums: albums)
+            case.failure(let error):
+                print(error)
             }
         }
     }

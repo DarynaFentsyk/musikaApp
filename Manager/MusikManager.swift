@@ -23,6 +23,7 @@ final class MusikManager {
     
     struct Dependency {
         let apiService: LastFMServiceProtocol
+        let dbService: DataBaseServiceProtocol
         let artistModelMapper: ArtistModelMapper
         let albumModelMapper: AlbumModelMapper
         let albumDetailsModelMapper: AlbumDetailsModelMapper
