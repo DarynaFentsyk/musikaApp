@@ -16,11 +16,7 @@ final class SearchCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         
         super.awakeFromNib()
-
-        albumCoverName.text = "Text"
-        
     }
-
 }
 
 extension SearchCollectionViewCell: ViewConfigurable {

@@ -23,14 +23,11 @@ final class HomeViewController: BaseViewController {
     private var dataSource: HomeCollectionViewDataSource!
     private var logicController: HomeLogicControllerProtocol!
     
-    lazy var test: UIViewController = {
-        let test = UIViewController()
-        let testView = UIView()
-        testView.backgroundColor = .blue
-        test.view = testView
-        return test
-    } ()
-    lazy var search = UISearchController(searchResultsController: test)
+    
+    
+    lazy var search = UISearchController(searchResultsController: searchViewController)
+    lazy var searchViewController = showSearch()
+    
     private var isSearchBarEmpty: Bool {
         return search.searchBar.text?.isEmpty ?? true
     }
@@ -45,7 +42,7 @@ final class HomeViewController: BaseViewController {
         
         self.navigationItem.searchController = search
         
-        search.searchResultsUpdater = self
+        search.searchResultsUpdater = searchViewController
         search.obscuresBackgroundDuringPresentation = false
         definesPresentationContext = true
         
@@ -82,6 +79,12 @@ final class HomeViewController: BaseViewController {
         
     }
     
+    private func showSearch() -> SearchViewControllerProtocol! {
+        
+         let vc = ViewControllerFactory.makeSearch()
+            return vc
+        }
+
     
     private func showAlbumDetails(withAlbum album: AlbumDetailsModel) {
         
@@ -98,17 +101,3 @@ extension HomeViewController: HomeViewControllerProtocol {
     }
 }
 
-extension HomeViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        
-        guard let text = searchBar.text, text != "" else {
-            return
-        }
-        self.logicController.getArtists(name: text)
-        
-        self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
-
-    }
-}
