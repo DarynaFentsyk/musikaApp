@@ -11,6 +11,7 @@ protocol HomeLogicControllerProtocol: class {
     
     var view: HomeViewControllerProtocol? { get set }
     func loadSavedAlbums()
+    func getArtists(name: String)
     
 }
 
@@ -27,8 +28,8 @@ final class HomeLogicController {
     
     required init(dependency: Dependency) {
         self.dependency = dependency
+        
     }
-    
 }
 
 extension HomeLogicController: HomeLogicControllerProtocol {
@@ -43,5 +44,19 @@ extension HomeLogicController: HomeLogicControllerProtocol {
                 print(error)
             }
         }
+    }
+    
+    func getArtists(name: String) {
+        
+        self.dependency.musicManager.getArtist(artistName: name){ [weak self] result in
+        
+                    switch result {
+                    case .success(let artists):
+                        self?.view?.showArtists(artists: artists)
+        
+                    case .failure(let error):
+                        print (error)
+                    }
+                }
     }
 }

@@ -20,8 +20,12 @@ final class ViewControllerFactory {
                                                                                                      dbService: dataBaseService,
                                                                                                      artistModelMapper: ArtistModelMapper(),
                                                                                                      albumModelMapper: AlbumModelMapper(),
-                                                                                                     albumDetailsModelMapper: AlbumDetailsModelMapper(trackModelMapper: TrackModelMapper))))
+                                                                                                     albumDetailsModelMapper: AlbumDetailsModelMapper(trackModelMapper: TrackModelMapper()))))
         
-        let dependency = HomeLogicController.Dependency(musicManager: MusikManager(dependency: .init(apiService: <#T##LastFMServiceProtocol#>, dbService: <#T##DataBaseServiceProtocol#>, artistModelMapper: <#T##ArtistModelMapper#>, albumModelMapper: <#T##AlbumModelMapper#>, albumDetailsModelMapper: <#T##AlbumDetailsModelMapper#>))
-}
+        let logicController = HomeLogicController(dependency: dependency)
+        let vc = HomeViewController.make(logicController: logicController)
+        
+        return vc
+    }
+    
 }

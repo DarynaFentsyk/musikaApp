@@ -18,6 +18,7 @@ final class HomeCollectionViewDataSource: NSObject {
     
     private weak var collectionView: UICollectionView!
     private var albums: [AlbumModel] = []
+    private var artists: [ArtistModel] = []
     var didSelectClosure: DidSelectClosure?
   
     required init(collectionView: UICollectionView) {
@@ -34,6 +35,10 @@ final class HomeCollectionViewDataSource: NSObject {
             self.albums = albums
             self.collectionView.reloadData()
         }
+    func updateArtist(withArtists artists: [ArtistModel]) {
+        self.artists = artists
+        
+    }
 }
 
 extension HomeCollectionViewDataSource: UICollectionViewDataSource {
