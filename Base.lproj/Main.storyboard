@@ -122,6 +122,10 @@
                             <outlet property="delegate" destination="9Pw-7L-I9q" id="7Zb-Op-rTk"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="Yff-9u-rZv"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="savedAlbumCover" destination="jg9-VL-flE" id="rnM-zx-r1l"/>
                         <outlet property="savedAlbumName" destination="yUe-Hd-yhD" id="J9R-OP-ZGw"/>
@@ -228,10 +232,10 @@
             </objects>
             <point key="canvasLocation" x="3152" y="-920"/>
         </scene>
-        <!--View Controller-->
+        <!--Album Details View Controller-->
         <scene sceneID="LQX-HM-bG3">
             <objects>
-                <viewController id="M7f-ad-WkV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbumDetailsViewController" id="M7f-ad-WkV" customClass="AlbumDetailsViewController" customModule="musikaApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fqi-ZC-SHh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

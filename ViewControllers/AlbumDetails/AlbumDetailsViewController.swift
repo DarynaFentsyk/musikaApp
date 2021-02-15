@@ -12,3 +12,56 @@ protocol AlbumDetailsViewControllerProtocol: UIViewController {
     func showAlbumInfo(tracks: [TrackModel]) 
 }
 
+final class AlbumDetailsViewController: BaseViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    private var logicController: AlbumDetailsLogicControllerProtocol!
+    private weak var favouriteButton: UIBarButtonItem!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.logicController.loadAlbumInfo()
+    }
+    
+    private func setUpFavouriteButton() {
+        
+        let image = UIImage.favIcon(isFav: self.logicController.isFavourite())
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.favouriteButtonTapped))
+        self.navigationItem.rightBarButtonItem = button
+        self.favouriteButton = button
+    }
+    
+    static func make(logicController: AlbumDetailsLogicControllerProtocol) -> AlbumDetailsViewController {
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlbumDetailsViewController") as! AlbumDetailsViewController
+        logicController.view = vc
+        vc.logicController = logicController
+        
+        return vc
+    }
+    
+    @objc private func favouriteButtonTapped() {
+        
+        self.logicController.toggleFavourite { [weak self] error in
+            guard let self = self else {
+                return
+            }
+            
+            if let error = error {
+                print (error)
+        }
+            
+            self.favouriteButton.image = UIImage.favIcon(isFav: self.logicController.isFavourite())
+    }
+}
+}
+
+extension AlbumDetailsViewController: AlbumDetailsViewControllerProtocol {
+    func showAlbumInfo(tracks: [TrackModel]) {
+        
+    }
+    
+    
+}
+
