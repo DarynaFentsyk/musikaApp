@@ -11,11 +11,11 @@ protocol MusikManagerProtocol {
     
     func getAlbum(artistName: String, completion: @escaping ResultHandler<[AlbumModel], Error>)
     func getArtist(artistName: String, completion: @escaping ResultHandler<[ArtistModel], Error>)
-    func getAlbumDetails(album: AlbumModel, completion: @escaping ResultHandler<[AlbumDetailsModel], Error>)
+    func getAlbumDetails(album: AlbumDetailsModel, completion: @escaping ResultHandler<AlbumDetailsModel, Error>)
     func getSavedAlbums(completion: @escaping ResultHandler<[AlbumModel], Error>)
-    func saveAlbum(album: AlbumModel, completion: @escaping ErrorHandler)
-    func deleteAlbum(album: AlbumModel, completion: @escaping ErrorHandler )
-    func isAlbumFavourite(album: AlbumModel) -> Bool
+    func saveAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler)
+    func deleteAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler )
+    func isAlbumFavourite(album: AlbumDetailsModel) -> Bool
     
 }
 
@@ -77,7 +77,7 @@ extension MusikManager: MusikManagerProtocol {
         }
     }
     
-    func getAlbumDetails(album: AlbumModel, completion: @escaping ResultHandler<[AlbumDetailsModel], Error>){
+    func getAlbumDetails(album: AlbumDetailsModel, completion: @escaping ResultHandler<AlbumDetailsModel, Error>){
         
         self.dependency.apiService.getAlbumDetails(artistName: album.artist, albumName: album.name) { [weak self] result in
             
@@ -90,16 +90,27 @@ extension MusikManager: MusikManagerProtocol {
                 completion(.failure(error))
             case .success(let apiAlbumDetails):
                 
-                let albumDetails = apiAlbumDetails.map { self.dependency.albumDetailsModelMapper.mapAPIToUI(apiAlbumDetails: $0)}
-                completion(.success(albumDetails))
+                let album = self.dependency.albumDetailsModelMapper.mapAPIToUI(apiAlbumDetails: apiAlbumDetails)
+                completion(.success(album))
             }
             
         }
     }
     func getSavedAlbums(completion: @escaping ResultHandler<[AlbumModel], Error>) {}
-    func saveAlbum(album: AlbumModel, completion: @escaping ErrorHandler) {}
-    func deleteAlbum(album: AlbumModel, completion: @escaping ErrorHandler ) {}
-    func isAlbumFavourite(album: AlbumModel) -> Bool {
-        return true
+    
+    func saveAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler) {
+        
+        let dbAlbum = self.dependency.albumDetailsModelMapper.mapUIToDB(album: album)
+        self.dependency.dbService.saveAlbum(dbAlbum: dbAlbum, completion: completion)
+    }
+    
+    func deleteAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler ) {
+        
+        self.dependency.dbService.deleteAlbum(id: album.id, completion: completion)
+    }
+    
+    func isAlbumFavourite(album: AlbumDetailsModel) -> Bool {
+        
+        return self.dependency.dbService.isAlbumSaved(id: album.id)
     }
 }

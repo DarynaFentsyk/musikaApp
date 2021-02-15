@@ -43,7 +43,7 @@ final class AlbumDetailsModelMapper {
         
         let mapper = TrackModelMapper()
         
-        let tracks = album.tracks
+        let tracks = album.tracks ?? []
         let dbTracks = List<DBTrackModel>()
         dbTracks.append(objectsIn: tracks.map { mapper.mapUIToDB(track: $0) })
         

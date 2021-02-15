@@ -10,7 +10,7 @@ import Foundation
 protocol LastFMServiceProtocol {
     func getArtist(artistName: String, completion: @escaping ResultHandler<[APIArtistModel], Error>)
     func getAlbums(artistName: String, completion: @escaping ResultHandler<[APIAlbumModel],Error>)
-    func getAlbumDetails(artistName: String, albumName: String, completion: @escaping ResultHandler<[APIAlbumDetailsModel],Error>)
+    func getAlbumDetails(artistName: String, albumName: String, completion: @escaping ResultHandler<APIAlbumDetailsModel,Error>)
 }
 
 final class LastFMService {
@@ -56,7 +56,7 @@ extension LastFMService: LastFMServiceProtocol {
         self.dependency.networkLayer.getObject(path: path, keyPath: KeyPath.getAlbums, completion: completion)
     }
     
-    func getAlbumDetails(artistName: String, albumName: String, completion: @escaping ResultHandler<[APIAlbumDetailsModel],Error>) {
+    func getAlbumDetails(artistName: String, albumName: String, completion: @escaping ResultHandler<APIAlbumDetailsModel,Error>) {
         
         guard let artistName = artistName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
             return

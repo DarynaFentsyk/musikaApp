@@ -27,7 +27,7 @@ final class HomeCollectionViewDataSource: NSObject {
             self.collectionView = collectionView
             self.collectionView.delegate = self
             self.collectionView.dataSource = self
-            self.collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
+            self.collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SearchCollectionViewCell")
         }
     
     
@@ -69,7 +69,9 @@ extension HomeCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellWidth = collectionView.frame.size.width / Const.numberOfColumns
+        let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let minimumInteritemSpacing = flowLayout?.minimumInteritemSpacing ?? 0
+        let cellWidth = collectionView.frame.size.width / Const.numberOfColumns - minimumInteritemSpacing/2
         let labelHeight = cellWidth / 4
         
         return CGSize(width: cellWidth, height: cellWidth + labelHeight)
