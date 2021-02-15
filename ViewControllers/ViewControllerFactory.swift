@@ -64,5 +64,10 @@ final class ViewControllerFactory {
         
     }
     
+    static func makeAlbumDetails(album: AlbumModel) {
+        
+        
+    }
+    
     
 }

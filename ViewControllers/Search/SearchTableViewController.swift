@@ -10,6 +10,7 @@ import UIKit
 protocol SearchViewControllerProtocol: UIViewController, UISearchResultsUpdating {
     
     func showArtists(artists: [ArtistModel])
+    var didSelectClosure: ((_ artist: ArtistModel) -> Void)? { get set }
 }
 
 final class SearchViewController: UIViewController {
@@ -19,6 +20,7 @@ final class SearchViewController: UIViewController {
     private var dataSource: SearchDataSourceController!
     
     
+    var didSelectClosure: ((_ artist: ArtistModel) -> Void)?
     
     static func make(logicController: SearchLogicControllerProtocol) -> SearchViewController {
         
@@ -51,16 +53,12 @@ final class SearchViewController: UIViewController {
     }
     private func setupDataSource() {
         self.dataSource = SearchDataSourceController(tableView: tableView)
-        self.dataSource.didSelectClosure = { [weak self] album in
-            
-            guard let self = self else{
-                return
-            }
-          
+        self.dataSource.didSelectClosure = { [weak self] artist in
+            self?.didSelectClosure?(artist)
         }
-        
     }
 }
+
 
 extension SearchViewController: SearchViewControllerProtocol {
     
@@ -79,7 +77,5 @@ extension SearchViewController: UISearchResultsUpdating {
         }
         self.logicController.getArtists(name: text)
         
-//        self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
-
     }
 }

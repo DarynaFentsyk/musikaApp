@@ -82,6 +82,15 @@ final class HomeViewController: BaseViewController {
     private func showSearch() -> SearchViewControllerProtocol! {
         
          let vc = ViewControllerFactory.makeSearch()
+        
+            vc?.didSelectClosure = { [weak self] artist in
+                guard let self = self,
+                    let vc = ViewControllerFactory.makeAlbumList(artist: artist) else {
+                        return
+                }
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            }
             return vc
         }
 

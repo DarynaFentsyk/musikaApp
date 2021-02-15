@@ -23,7 +23,7 @@ final class TopAlbumsCollectionViewController: BaseViewController {
             super.viewDidLoad()
         
         self.logicController.getAlbum()
-            
+        self.setupUI()
         }
         
     override func viewWillAppear(_ animated: Bool) {
@@ -45,8 +45,8 @@ final class TopAlbumsCollectionViewController: BaseViewController {
         self.dataSource = TopAlbumsDatasourceController(collectionView: self.collectionView, logicController: self.logicController)
         self.dataSource.didSelectClosure = { [weak self] artist in
             
-            guard let self = self,
-                  let vc = ViewControllerFactory.makeAlbumList(artist: artist)
+            guard let self = self
+//                  let vc = ViewControllerFactory.makeAlbumList(artist: artist)
                   else {
                 return
             }
