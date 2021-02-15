@@ -66,6 +66,11 @@ final class ViewControllerFactory {
     
     static func makeAlbumDetails(album: AlbumModel) {
         
+//        guard let dataBaseService = DataBaseService(configuration: .defaultConfiguration) else {
+//            return nil
+//        }
+        
+        
         
     }
     

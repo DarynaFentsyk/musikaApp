@@ -54,7 +54,7 @@ final class TopAlbumsCollectionViewController: BaseViewController {
         }
         
     }
-    
+        
 }
 
 extension TopAlbumsCollectionViewController: TopAlbumsCollectionViewControllerProtocol {
