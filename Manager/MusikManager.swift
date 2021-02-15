@@ -11,7 +11,7 @@ protocol MusikManagerProtocol {
     
     func getAlbum(artistName: String, completion: @escaping ResultHandler<[AlbumModel], Error>)
     func getArtist(artistName: String, completion: @escaping ResultHandler<[ArtistModel], Error>)
-    func getAlbumDetails(artistName: String, albumName: String, completion: @escaping ResultHandler<[AlbumDetailsModel], Error>)
+    func getAlbumDetails(album: AlbumModel, completion: @escaping ResultHandler<[AlbumDetailsModel], Error>)
     func getSavedAlbums(completion: @escaping ResultHandler<[AlbumModel], Error>)
     func saveAlbum(album: AlbumModel, completion: @escaping ErrorHandler)
     func deleteAlbum(album: AlbumModel, completion: @escaping ErrorHandler )
@@ -77,9 +77,9 @@ extension MusikManager: MusikManagerProtocol {
         }
     }
     
-    func getAlbumDetails(artistName: String, albumName: String, completion: @escaping ResultHandler<[AlbumDetailsModel], Error>){
+    func getAlbumDetails(album: AlbumModel, completion: @escaping ResultHandler<[AlbumDetailsModel], Error>){
         
-        self.dependency.apiService.getAlbumDetails(artistName: artistName, albumName: albumName) { [weak self] result in
+        self.dependency.apiService.getAlbumDetails(artistName: album.artist, albumName: album.name) { [weak self] result in
             
             guard let self = self else {
                 return

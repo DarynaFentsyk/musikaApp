@@ -28,8 +28,7 @@ final class ViewControllerFactory {
         return vc
     }
     
-    
-    static func makeSearch() -> SearchViewControllerProtocol? {
+        static func makeSearch() -> SearchViewControllerProtocol? {
         
         guard let dataBaseService = DataBaseService(configuration: .defaultConfiguration) else {
             return nil
@@ -47,7 +46,23 @@ final class ViewControllerFactory {
         return vc
     }
 
-//    lazy var search = UISearchController(searchResultsController: test)
+    static func makeAlbumList(artist: ArtistModel) -> TopAlbumsCollectionViewControllerProtocol? {
+        
+        guard let dataBaseService = DataBaseService(configuration: .defaultConfiguration) else {
+            return nil
+        }
+        
+        let dependency = TopAlbumsLogicController.Dependency(musicManager: MusikManager(dependency: .init(apiService: LastFMService(),
+                                                                                                          dbService: dataBaseService, artistModelMapper: ArtistModelMapper(),
+                                                                                                          albumModelMapper: AlbumModelMapper(),
+                                                                                                          albumDetailsModelMapper: AlbumDetailsModelMapper(trackModelMapper: TrackModelMapper()))))
+        let parameter = TopAlbumsLogicController.Parameter(artist: artist)
+        let logicController = TopAlbumsLogicController(dependency: dependency, parameter: parameter)
+        let vc = TopAlbumsCollectionViewController.make(logicController: logicController)
+        
+        return vc
+        
+    }
     
     
 }
