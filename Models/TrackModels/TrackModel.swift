@@ -12,4 +12,5 @@ import Foundation
 struct TrackModel {
     
     let name: String
+    let duration: String
 }

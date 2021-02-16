@@ -17,11 +17,31 @@ final class AlbumDetailsViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var logicController: AlbumDetailsLogicControllerProtocol!
+    private var dataSource: AlbumDetailsDataSource!
     private weak var favouriteButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.logicController.loadAlbumInfo()
+    }
+    
+    private func setupUI() {
+        
+        self.dataSource = AlbumDetailsDataSource(tableView: self.tableView)
+        self.setUpHeaderView()
+        self.setUpFavouriteButton()
+        
+    }
+    
+    private func setUpHeaderView() {
+        
+        let headerView = AlbumHeaderView.make()
+        let headerViewModel = AlbumHeaderView.Model(imageUrl: self.logicController.album.imageURl,
+                                                    artistName: self.logicController.album.artist,
+                                                    albumName: self.logicController.album.name)
+        headerView.configure(model: headerViewModel)
+        headerView.frame.size.height = headerView.viewHeight
+        self.tableView.tableHeaderView = headerView
     }
     
     private func setUpFavouriteButton() {
@@ -50,16 +70,15 @@ final class AlbumDetailsViewController: BaseViewController {
             
             if let error = error {
                 print (error)
-        }
-            
+            }
             self.favouriteButton.image = UIImage.favIcon(isFav: self.logicController.isFavourite())
+        }
     }
-}
 }
 
 extension AlbumDetailsViewController: AlbumDetailsViewControllerProtocol {
     func showAlbumInfo(tracks: [TrackModel]) {
-        
+        self.dataSource.update(withTracks: tracks)
     }
     
     

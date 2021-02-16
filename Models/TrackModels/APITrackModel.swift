@@ -11,4 +11,5 @@ import Foundation
 struct APITrackModel: Codable {
     
     let name: String
+    let duration: String
 }

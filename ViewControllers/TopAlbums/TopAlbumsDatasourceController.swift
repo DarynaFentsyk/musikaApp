@@ -51,9 +51,8 @@ extension TopAlbumsDatasourceController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as! SearchCollectionViewCell
             
             let album = self.album[indexPath.item]
-        let cellModel = SearchCollectionViewCell.Model(imageURL: album.imageUrl, title: album.name)
+            let cellModel = SearchCollectionViewCell.Model(imageURL: album.imageUrl, title: album.name)
             cell.configure(model: cellModel)
-        cell.backgroundColor = .red
             return cell
     }
 }
