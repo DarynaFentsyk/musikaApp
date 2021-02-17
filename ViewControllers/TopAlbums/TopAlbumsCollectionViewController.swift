@@ -20,17 +20,17 @@ final class TopAlbumsCollectionViewController: BaseViewController {
     private var logicController: TopAlbumsLogicControllerProtocol!
     
     override func viewDidLoad() {
-            super.viewDidLoad()
+        super.viewDidLoad()
         
         self.logicController.getAlbum()
         self.setupUI()
-        }
-        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            
-            self.collectionView.reloadData()
-        }
+        super.viewWillAppear(animated)
+        
+        self.collectionView.reloadData()
+    }
     
     static func make(logicController: TopAlbumsLogicControllerProtocol) -> TopAlbumsCollectionViewControllerProtocol {
         
@@ -46,22 +46,18 @@ final class TopAlbumsCollectionViewController: BaseViewController {
         self.dataSource.didSelectClosure = { [weak self] artist in
             
             guard let self = self
-//                  let vc = ViewControllerFactory.makeAlbumList(artist: artist)
-                  else {
+            //            let vc = ViewControllerFactory.makeAlbumList(artist: artist)
+            //            TO-DO
+            else {
                 return
             }
-
         }
-        
     }
-        
 }
 
 extension TopAlbumsCollectionViewController: TopAlbumsCollectionViewControllerProtocol {
+    
     func showAlbums(albums: [AlbumModel]) {
         self.dataSource.update(withAlbums: albums)
     }
-    
-    
-    
 }

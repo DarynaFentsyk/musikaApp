@@ -11,12 +11,6 @@ class SearchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var artistPhoto: PlaceholderImageView!
     @IBOutlet weak var artistName: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
 }
 
 extension SearchTableViewCell: ViewConfigurable {
@@ -31,9 +25,4 @@ extension SearchTableViewCell: ViewConfigurable {
         self.artistPhoto.imgUrl = model.imageURL
         self.artistName.text = model.title
     }
-    
-    
-    
-    
-    
 }

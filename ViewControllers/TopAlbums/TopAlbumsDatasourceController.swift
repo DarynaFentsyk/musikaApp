@@ -22,39 +22,35 @@ final class TopAlbumsDatasourceController: NSObject {
     
     required init(collectionView: UICollectionView, logicController: TopAlbumsLogicControllerProtocol) {
         self.logicController = logicController
-//        why before super .init()
-
+        //        why before super .init()
         super .init()
+        
         self.collectionView = collectionView
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SearchCollectionViewCell")
-        
     }
     
     func update(withAlbums albums: [AlbumModel]) {
-            self.album = albums
-            self.collectionView.reloadData()
-        }
-    
+        
+        self.album = albums
+        self.collectionView.reloadData()
+    }
 }
 
 extension TopAlbumsDatasourceController: UICollectionViewDataSource {
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.album.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as! SearchCollectionViewCell
-            
-            let album = self.album[indexPath.item]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as! SearchCollectionViewCell
+        let album = self.album[indexPath.item]
         let cellModel = SearchCollectionViewCell.Model(imageURL: album.imageUrl, title: album.name)
-            cell.configure(model: cellModel)
-        cell.backgroundColor = .red
-            return cell
+        cell.configure(model: cellModel)
+        return cell
     }
 }
 
@@ -68,11 +64,8 @@ extension TopAlbumsDatasourceController: UICollectionViewDelegateFlowLayout {
         
         let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout
         let minimumInteritemSpacing = flowLayout?.minimumInteritemSpacing ?? 0
-        let cellWidth = collectionView.frame.size.width / Const.numberOfColumns - minimumInteritemSpacing/2
+        let cellWidth = collectionView.frame.size.width / Const.numberOfColumns - minimumInteritemSpacing / 2
         let labelHeight = cellWidth / 4
-        
         return CGSize(width: cellWidth, height: cellWidth + labelHeight)
-        
     }
-    
 }
