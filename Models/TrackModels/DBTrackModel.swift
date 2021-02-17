@@ -12,5 +12,4 @@ final class DBTrackModel: Object {
     
     @objc dynamic var name = ""
     @objc dynamic var duration = ""
-
 }

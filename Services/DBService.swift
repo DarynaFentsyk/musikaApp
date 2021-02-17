@@ -56,7 +56,7 @@ extension DataBaseService: DataBaseServiceProtocol {
             completion(nil)
         } catch {
             completion(error)
-            }
+        }
         
     }
     

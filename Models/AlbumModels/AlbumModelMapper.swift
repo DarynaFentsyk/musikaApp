@@ -15,8 +15,7 @@ final class AlbumModelMapper {
         return AlbumModel(id: apiAlbum.mbid ?? "",
                           name: apiAlbum.name,
                           artist: apiAlbum.artist.name,
-                          imageUrl: URL(string: imageUrl ?? ""))
-        
+                          imageUrl: URL(string: imageUrl ?? "")
+        )
     }
-    
 }

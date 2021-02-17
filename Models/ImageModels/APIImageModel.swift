@@ -8,10 +8,12 @@
 import Foundation
 
 struct APIImageModel: Codable {
+    
     let text: String
     let size: String
-
+    
     enum CodingKeys: String, CodingKey {
+        
         case text = "#text"
         case size
     }

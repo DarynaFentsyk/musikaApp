@@ -11,12 +11,6 @@ final class SearchCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var albumCoverImage: PlaceholderImageView!
     @IBOutlet weak var albumCoverName: UILabel!
-    
-    
-    override func awakeFromNib() {
-        
-        super.awakeFromNib()
-    }
 }
 
 extension SearchCollectionViewCell: ViewConfigurable {
@@ -31,8 +25,4 @@ extension SearchCollectionViewCell: ViewConfigurable {
         self.albumCoverImage.imgUrl = model.imageURL
         self.albumCoverName.text = model.title
     }
-    
-
-    
-
 }

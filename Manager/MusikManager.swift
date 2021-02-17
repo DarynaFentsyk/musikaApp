@@ -16,7 +16,6 @@ protocol MusikManagerProtocol {
     func saveAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler)
     func deleteAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler )
     func isAlbumFavourite(album: AlbumDetailsModel) -> Bool
-    
 }
 
 final class MusikManager {
@@ -53,7 +52,6 @@ extension MusikManager: MusikManagerProtocol {
                 
                 let albums = apiAlbums.map {self.dependency.albumModelMapper.mapAPIToUI(apiAlbum: $0)}
                 completion(.success(albums))
-                
             }
         }
     }
@@ -96,7 +94,10 @@ extension MusikManager: MusikManagerProtocol {
             
         }
     }
-    func getSavedAlbums(completion: @escaping ResultHandler<[AlbumModel], Error>) {}
+    
+    func getSavedAlbums(completion: @escaping ResultHandler<[AlbumModel], Error>) {
+        // TO-DO
+    }
     
     func saveAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler) {
         
@@ -105,12 +106,10 @@ extension MusikManager: MusikManagerProtocol {
     }
     
     func deleteAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler ) {
-        
         self.dependency.dbService.deleteAlbum(id: album.id, completion: completion)
     }
     
     func isAlbumFavourite(album: AlbumDetailsModel) -> Bool {
-        
         return self.dependency.dbService.isAlbumSaved(id: album.id)
     }
 }
