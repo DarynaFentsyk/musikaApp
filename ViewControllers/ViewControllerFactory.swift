@@ -58,8 +58,7 @@ final class ViewControllerFactory {
                                                                                             apiService: LastFMService(),
                                                                                             dbService: dataBaseService, artistModelMapper: ArtistModelMapper(),
                                                                                             albumModelMapper: AlbumModelMapper(),
-                                                                                            albumDetailsModelMapper: AlbumDetailsModelMapper(
-                                                                                                trackModelMapper: TrackModelMapper())))
+                                                                                            albumDetailsModelMapper: AlbumDetailsModelMapper(trackModelMapper: TrackModelMapper())))
         )
         
         let parameter = TopAlbumsLogicController.Parameter(artist: artist)

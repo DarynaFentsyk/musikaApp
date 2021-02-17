@@ -71,13 +71,12 @@ final class HomeViewController: BaseViewController {
     
     private func showSearch() -> SearchViewControllerProtocol! {
         
-        let vc = ViewControllerFactory.makeSearch()
+        let searchViewController = ViewControllerFactory.makeSearch()
         
-        vc?.didSelectClosure = { [weak self] artist in
-            
+        searchViewController?.didSelectClosure = { [weak self] artist in
             self?.handleArtistSelection(artist: artist)
         }
-        return vc
+        return searchViewController
     }
     
     private func handleArtistSelection(artist: ArtistModel) {

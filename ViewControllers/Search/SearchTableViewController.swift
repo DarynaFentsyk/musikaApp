@@ -46,7 +46,7 @@ final class SearchViewController: UIViewController {
     
     private func setupUI() {
         
-        setupTableView()
+        self.setupTableView()
         setupDataSource()
     }
     

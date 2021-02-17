@@ -50,6 +50,7 @@ extension MusikManager: MusikManagerProtocol {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let apiAlbums):
+                
                 let albums = apiAlbums.map {self.dependency.albumModelMapper.mapAPIToUI(apiAlbum: $0)}
                 completion(.success(albums))
             }

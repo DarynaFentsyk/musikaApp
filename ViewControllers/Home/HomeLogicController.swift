@@ -50,7 +50,7 @@ extension HomeLogicController: HomeLogicControllerProtocol {
             case .success(let artists):
                 self?.view?.showArtists(artists: artists)
             case .failure(let error):
-                print (error)
+                print(error)
             }
         }
     }
