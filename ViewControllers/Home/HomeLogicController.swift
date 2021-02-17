@@ -12,29 +12,25 @@ protocol HomeLogicControllerProtocol: class {
     var view: HomeViewControllerProtocol? { get set }
     func loadSavedAlbums()
     func getArtists(name: String)
-    
 }
 
 final class HomeLogicController {
     
     struct Dependency {
         let musicManager: MusikManagerProtocol
-        
     }
-    
     private let dependency: Dependency
-    
     weak var view: HomeViewControllerProtocol?
     
     required init(dependency: Dependency) {
         self.dependency = dependency
-        
     }
 }
 
 extension HomeLogicController: HomeLogicControllerProtocol {
     
     func loadSavedAlbums() {
+        
         self.dependency.musicManager.getSavedAlbums{ [weak self] result in
             
             switch result {
@@ -49,14 +45,13 @@ extension HomeLogicController: HomeLogicControllerProtocol {
     func getArtists(name: String) {
         
         self.dependency.musicManager.getArtist(artistName: name){ [weak self] result in
-        
-                    switch result {
-                    case .success(let artists):
-                        self?.view?.showArtists(artists: artists)
-        
-                    case .failure(let error):
-                        print (error)
-                    }
-                }
+            
+            switch result {
+            case .success(let artists):
+                self?.view?.showArtists(artists: artists)
+            case .failure(let error):
+                print (error)
+            }
+        }
     }
 }

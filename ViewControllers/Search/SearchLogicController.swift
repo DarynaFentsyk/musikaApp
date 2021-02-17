@@ -10,9 +10,7 @@ import Foundation
 protocol SearchLogicControllerProtocol: class {
     
     var view: SearchViewControllerProtocol? { get set }
-    
     func getArtists(name: String)
-    
 }
 
 final class SearchLogicController: SearchLogicControllerProtocol {
@@ -21,26 +19,24 @@ final class SearchLogicController: SearchLogicControllerProtocol {
     
     struct Dependency {
         let musicManager: MusikManagerProtocol
-        
     }
+    
     private let dependency: Dependency
     
     required init(dependency: Dependency) {
         self.dependency = dependency
-        
     }
     
     func getArtists(name: String) {
         
         self.dependency.musicManager.getArtist(artistName: name){ [weak self] result in
-        
-                    switch result {
-                    case .success(let artists):
-                        self?.view?.showArtists(artists: artists)
-        
-                    case .failure(let error):
-                        print (error)
-                    }
-                }
+            
+            switch result {
+            case .success(let artists):
+                self?.view?.showArtists(artists: artists)
+            case .failure(let error):
+                print (error)
+            }
+        }
     }
 }

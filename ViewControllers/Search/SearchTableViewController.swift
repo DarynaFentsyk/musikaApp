@@ -15,12 +15,20 @@ protocol SearchViewControllerProtocol: UIViewController, UISearchResultsUpdating
 
 final class SearchViewController: UIViewController {
     
+    typealias DidSelectClosure = (_ artist: ArtistModel) -> Void
+    
     private let tableView = UITableView(frame: .zero, style: .plain)
     private var logicController: SearchLogicControllerProtocol!
-    private var dataSource: SearchDataSourceController!
+    private let dataSource = SearchDataSourceController()
     
-    
-    var didSelectClosure: ((_ artist: ArtistModel) -> Void)?
+    var didSelectClosure: DidSelectClosure? {
+        get {
+            return self.dataSource.didSelectClosure
+        }
+        set {
+            self.dataSource.didSelectClosure = newValue
+        }
+    }
     
     static func make(logicController: SearchLogicControllerProtocol) -> SearchViewController {
         
@@ -34,31 +42,31 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupUI()
-        
     }
     
     private func setupUI() {
+        
         setupTableView()
         setupDataSource()
     }
+    
     private func setupTableView() {
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(self.tableView)
+        
         let leadingConstraint = self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
         let topConstraint = self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor)
-        self.tableView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
-        self.tableView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        
+        self.view.addSubview(self.tableView)
         self.view.addConstraints([leadingConstraint, topConstraint])
         
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.tableView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        self.tableView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
     }
+    
     private func setupDataSource() {
-        self.dataSource = SearchDataSourceController(tableView: tableView)
-        self.dataSource.didSelectClosure = { [weak self] artist in
-            self?.didSelectClosure?(artist)
-        }
+        self.dataSource.setUp(with: self.tableView)
     }
 }
-
 
 extension SearchViewController: SearchViewControllerProtocol {
     
@@ -70,12 +78,12 @@ extension SearchViewController: SearchViewControllerProtocol {
 extension SearchViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
+        
         let searchBar = searchController.searchBar
         
         guard let text = searchBar.text, text != "" else {
             return
         }
         self.logicController.getArtists(name: text)
-        
     }
 }

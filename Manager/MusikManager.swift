@@ -50,10 +50,8 @@ extension MusikManager: MusikManagerProtocol {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let apiAlbums):
-                
                 let albums = apiAlbums.map {self.dependency.albumModelMapper.mapAPIToUI(apiAlbum: $0)}
                 completion(.success(albums))
-                
             }
         }
     }
@@ -96,10 +94,12 @@ extension MusikManager: MusikManagerProtocol {
             
         }
     }
+    
     func getSavedAlbums(completion: @escaping ResultHandler<[AlbumModel], Error>) {}
     func saveAlbum(album: AlbumModel, completion: @escaping ErrorHandler) {}
     func deleteAlbum(album: AlbumModel, completion: @escaping ErrorHandler ) {}
     func isAlbumFavourite(album: AlbumModel) -> Bool {
+        // TO-DO
         return true
     }
 }
