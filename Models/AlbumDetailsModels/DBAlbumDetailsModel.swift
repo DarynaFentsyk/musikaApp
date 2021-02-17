@@ -20,7 +20,6 @@ final class DBAlbumDetailsModel: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
-    
 }
 
 

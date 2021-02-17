@@ -14,6 +14,5 @@ struct APITracksModel: Codable {
     enum CodingKeys: String, CodingKey {
         
         case tracks = "track"
-
     }
 }

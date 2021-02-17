@@ -21,8 +21,8 @@ extension JSONDecoder {
             let nestedJSONData = try JSONSerialization.data(withJSONObject: nestedJson)
             return try decode(type, from: nestedJSONData)
         } else {
-                    throw DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "Nested json not found for key path \"\(keyPath)\""))
-                }
-            }
+            throw DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "Nested json not found for key path \"\(keyPath)\""))
         }
+    }
+}
 

@@ -11,5 +11,4 @@ struct ArtistModel {
     
     let name:  String
     let imageUrl: URL?
-    
 }

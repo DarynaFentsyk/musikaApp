@@ -8,9 +8,10 @@
 import Foundation
 
 protocol LastFMServiceProtocol {
+    
     func getArtist(artistName: String, completion: @escaping ResultHandler<[APIArtistModel], Error>)
     func getAlbums(artistName: String, completion: @escaping ResultHandler<[APIAlbumModel],Error>)
-    func getAlbumDetails(artistName: String, albumName: String, completion: @escaping ResultHandler<[APIAlbumDetailsModel],Error>)
+    func getAlbumDetails(artistName: String, albumName: String, completion: @escaping ResultHandler<APIAlbumDetailsModel,Error>)
 }
 
 final class LastFMService {
@@ -20,6 +21,7 @@ final class LastFMService {
     }
     
     struct KeyPath {
+        
         static let getArtists = "results.artistmatches.artist"
         static let getAlbums = "topalbums.album"
         static let albumDetails = "album"
@@ -41,7 +43,6 @@ extension LastFMService: LastFMServiceProtocol {
         }
         
         let path = "\(Constants.API.baseURL)/?method=artist.search&artist=\(name)&api_key=\(Constants.API.apiKey)&format=json"
-        
         self.dependency.networkLayer.getObject(path: path, keyPath: KeyPath.getArtists, completion: completion)
     }
     
@@ -52,22 +53,17 @@ extension LastFMService: LastFMServiceProtocol {
         }
         
         let path = "\(Constants.API.baseURL)/?method=artist.gettopalbums&artist=\(name)&api_key=\(Constants.API.apiKey)&format=json"
-        
         self.dependency.networkLayer.getObject(path: path, keyPath: KeyPath.getAlbums, completion: completion)
     }
     
-    func getAlbumDetails(artistName: String, albumName: String, completion: @escaping ResultHandler<[APIAlbumDetailsModel],Error>) {
+    func getAlbumDetails(artistName: String, albumName: String, completion: @escaping ResultHandler<APIAlbumDetailsModel,Error>) {
         
-        guard let artistName = artistName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
-            return
-        }
-        
-        guard let albumName = albumName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
+        guard let artistName = artistName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+              let albumName = albumName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
             return
         }
         
         let path = "\(Constants.API.baseURL)/?method=album.getinfo&api_key=\(Constants.API.apiKey)&artist=\(artistName)&album=\(albumName)&format=json"
-        
         self.dependency.networkLayer.getObject(path: path, keyPath: KeyPath.albumDetails, completion: completion)
     }
 }

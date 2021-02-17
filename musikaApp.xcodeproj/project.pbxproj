@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7112AC3225DAB6FA00BD8938 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112AC3125DAB6FA00BD8938 /* AlbumDetailsViewController.swift */; };
+		7112AC3925DABD5500BD8938 /* AlbumDetailsLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112AC3825DABD5500BD8938 /* AlbumDetailsLogicController.swift */; };
 		711E04B025D168C400FF2287 /* MusikManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711E04AF25D168C400FF2287 /* MusikManager.swift */; };
 		711E04B325D1761400FF2287 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711E04B225D1761400FF2287 /* DBService.swift */; };
 		711E04C725D19DBF00FF2287 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711E04C625D19DBF00FF2287 /* FontType.swift */; };
@@ -61,6 +63,8 @@
 
 /* Begin PBXFileReference section */
 		09C0D5A1B9F162CA3AC335B8 /* Pods_musikaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_musikaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7112AC3125DAB6FA00BD8938 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
+		7112AC3825DABD5500BD8938 /* AlbumDetailsLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsLogicController.swift; sourceTree = "<group>"; };
 		711E04AF25D168C400FF2287 /* MusikManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusikManager.swift; sourceTree = "<group>"; };
 		711E04B225D1761400FF2287 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		711E04C625D19DBF00FF2287 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
@@ -141,6 +145,15 @@
 				8E6872E1ED405171815D5286 /* Pods-musikaApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7112AC3025DAB66600BD8938 /* AlbumDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7112AC3125DAB6FA00BD8938 /* AlbumDetailsViewController.swift */,
+				7112AC3825DABD5500BD8938 /* AlbumDetailsLogicController.swift */,
+			);
+			path = AlbumDetails;
 			sourceTree = "<group>";
 		};
 		711E051F25D2DCDD00FF2287 /* Manager */ = {
@@ -265,6 +278,7 @@
 		7174394A25CD3F1700038B9E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7112AC3025DAB66600BD8938 /* AlbumDetails */,
 				7174394B25CD3F4100038B9E /* ViewControllerFactory.swift */,
 				7174395525CD448700038B9E /* BaseViewController.swift */,
 				71E3D03F25D533940004EBC6 /* TopAlbums */,
@@ -515,6 +529,7 @@
 				716B1B8925D3F49A00B7FA7F /* AppDelegate.swift in Sources */,
 				71E04C7A25D1567900CA73CF /* Constants.swift in Sources */,
 				711E04CA25D19F1200FF2287 /* ViewConfigurable.swift in Sources */,
+				7112AC3225DAB6FA00BD8938 /* AlbumDetailsViewController.swift in Sources */,
 				718D2E0E25CAE94D0082ADEE /* APIImageModel.swift in Sources */,
 				7174392025CC241E00038B9E /* ArtistModelMapper.swift in Sources */,
 				7174395225CD43B400038B9E /* HomeViewController.swift in Sources */,
@@ -524,6 +539,7 @@
 				7149B4C9257D7F5A00511749 /* LastFmAPIService.swift in Sources */,
 				7130350F257040B800697149 /* APIArtistModel.swift in Sources */,
 				7174395925CD488600038B9E /* HomeLogicController.swift in Sources */,
+				7112AC3925DABD5500BD8938 /* AlbumDetailsLogicController.swift in Sources */,
 				716B1B8425D2EAF700B7FA7F /* SearchLogicController.swift in Sources */,
 				718D2E1525CAEE280082ADEE /* APIAlbumModel.swift in Sources */,
 				7174395625CD448700038B9E /* BaseViewController.swift in Sources */,
