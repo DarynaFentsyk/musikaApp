@@ -11,7 +11,7 @@ final class ArtistModelMapper {
     
     func mapAPIToUI (apiArtist: APIArtistModel) -> ArtistModel {
         
-        let imageUrl = apiArtist.images.filter({$0.size == "large"}).first?.text
+        let imageUrl = apiArtist.images?.filter {$0.size == "large"} .first?.text
         
         
         return ArtistModel(name: apiArtist.name,

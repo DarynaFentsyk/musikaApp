@@ -13,17 +13,12 @@ protocol HomeViewControllerProtocol: UIViewController {
     func showArtists(artists: [ArtistModel])
 }
 
-
 final class HomeViewController: BaseViewController {
-
-    
     
     @IBOutlet private weak var collectionView: UICollectionView!
     
     private var dataSource: HomeCollectionViewDataSource!
     private var logicController: HomeLogicControllerProtocol!
-    
-    
     
     lazy var search = UISearchController(searchResultsController: searchViewController)
     lazy var searchViewController = showSearch()
@@ -31,14 +26,13 @@ final class HomeViewController: BaseViewController {
     private var isSearchBarEmpty: Bool {
         return search.searchBar.text?.isEmpty ?? true
     }
+    
     private var isFiltering: Bool {
         return search.isActive && !isSearchBarEmpty
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print (self)
         
         self.navigationItem.searchController = search
         
@@ -46,15 +40,13 @@ final class HomeViewController: BaseViewController {
         search.obscuresBackgroundDuringPresentation = false
         definesPresentationContext = true
         
-        self.title = "test"
-        
         self.setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        self.logicController.loadSavedAlbums()
-//        
+        //        self.logicController.loadSavedAlbums()
+        //        TO-DO
     }
     
     static func make(logicController: HomeLogicControllerProtocol) -> HomeViewControllerProtocol {
@@ -62,36 +54,46 @@ final class HomeViewController: BaseViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         logicController.view = vc
         vc.logicController = logicController
-        
         return vc
-        
     }
     
     private func setupUI() {
+        
         self.dataSource = HomeCollectionViewDataSource(collectionView: self.collectionView)
         self.dataSource.didSelectClosure = { [weak self] album in
             
             guard let self = self else{
                 return
             }
-          
+//            TO-DO
         }
-        
     }
     
     private func showSearch() -> SearchViewControllerProtocol! {
         
-         let vc = ViewControllerFactory.makeSearch()
-            return vc
+        let searchViewController = ViewControllerFactory.makeSearch()
+        
+        searchViewController?.didSelectClosure = { [weak self] artist in
+            self?.handleArtistSelection(artist: artist)
         }
-
+        return searchViewController
+    }
+    
+    private func handleArtistSelection(artist: ArtistModel) {
+        
+        guard let topAlbumVC = ViewControllerFactory.makeAlbumList(artist: artist) else {
+            return
+        }
+        self.navigationController?.pushViewController(topAlbumVC, animated: true)
+    }
     
     private func showAlbumDetails(withAlbum album: AlbumDetailsModel) {
-        
+        //TO-DO
     }
 }
 
 extension HomeViewController: HomeViewControllerProtocol {
+    
     func showAlbums(albums: [AlbumModel]) {
         self.dataSource.update(withAlbums: albums)
     }

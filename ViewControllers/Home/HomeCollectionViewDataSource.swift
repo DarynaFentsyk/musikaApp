@@ -20,39 +20,36 @@ final class HomeCollectionViewDataSource: NSObject {
     private var albums: [AlbumModel] = []
     private var artists: [ArtistModel] = []
     var didSelectClosure: DidSelectClosure?
-  
-    required init(collectionView: UICollectionView) {
-            super.init()
-            
-            self.collectionView = collectionView
-            self.collectionView.delegate = self
-            self.collectionView.dataSource = self
-            self.collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
-        }
     
+    required init(collectionView: UICollectionView) {
+        super.init()
+        
+        self.collectionView = collectionView
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        self.collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
+    }
     
     func update(withAlbums albums: [AlbumModel]) {
-            self.albums = albums
-            self.collectionView.reloadData()
-        }
+        
+        self.albums = albums
+        self.collectionView.reloadData()
+    }
+    
     func updateArtist(withArtists artists: [ArtistModel]) {
         self.artists = artists
-        
     }
 }
 
 extension HomeCollectionViewDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return self.albums.count
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as! SearchCollectionViewCell
-        
         let album = self.albums[indexPath.item]
         let cellModel = SearchCollectionViewCell.Model(imageURL: album.imageUrl, title: album.name)
         cell.configure(model: cellModel)
@@ -62,7 +59,6 @@ extension HomeCollectionViewDataSource: UICollectionViewDataSource {
 
 extension HomeCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.didSelectClosure?(self.albums[indexPath.item])
     }
@@ -71,9 +67,7 @@ extension HomeCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
         
         let cellWidth = collectionView.frame.size.width / Const.numberOfColumns
         let labelHeight = cellWidth / 4
-        
         return CGSize(width: cellWidth, height: cellWidth + labelHeight)
     }
-    
 }
 

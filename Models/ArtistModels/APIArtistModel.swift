@@ -10,7 +10,7 @@ import Foundation
 struct APIArtistModel: Codable {
     
     let name:  String
-    let images: [APIImageModel]
+    let images: [APIImageModel]?
     
     enum CodingKeys: String, CodingKey {
         
