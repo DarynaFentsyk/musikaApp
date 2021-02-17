@@ -22,6 +22,5 @@ struct APIAlbumDetailsModel: Codable {
         case artist
         case images = "image"
         case tracks
-        
     }
 }

@@ -11,5 +11,4 @@ import RealmSwift
 final class DBTrackModel: Object {
     
     @objc dynamic var name = ""
-
 }

@@ -16,8 +16,6 @@ enum FontType {
         switch self {
         case .body: return UIFont.systemFont(ofSize: 12)
         case .headline: return UIFont.systemFont(ofSize: 14)
-        // case .body: return UIFont.preferredFont(forTextStyle: .body)
-        // For dynamic preffered Font
         }
     }
 }

@@ -11,7 +11,6 @@ import AlamofireImage
 class PlaceholderImageView: UIImageView {
     
     var imgUrl: URL? {
-        
         didSet {
             if let imgUrl = self.imgUrl {
                 self.af.setImage(withURL: imgUrl, placeholderImage: #imageLiteral(resourceName: "AlbumPhoto"))

@@ -41,7 +41,7 @@ extension TopAlbumsLogicController: TopAlbumsLogicControllerProtocol {
             
             switch result {
             case .failure(let error):
-                print (error)
+                print(error)
             case .success(let albums):
                 self?.view?.showAlbums(albums: albums)
             }
