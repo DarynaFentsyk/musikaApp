@@ -14,8 +14,8 @@ enum FontType {
     
     var font: UIFont {
         switch self {
-        case .body: return UIFont.systemFont(ofSize: 12)
-        case .headline: return UIFont.systemFont(ofSize: 14)
+        case .body: return .systemFont(ofSize: 12)
+        case .headline: return .systemFont(ofSize: 14)
         }
     }
 }

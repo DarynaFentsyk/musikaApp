@@ -58,10 +58,8 @@ extension LastFMService: LastFMServiceProtocol {
     
     func getAlbumDetails(artistName: String, albumName: String, completion: @escaping ResultHandler<APIAlbumDetailsModel,Error>) {
         
-        guard let artistName = artistName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
-            return
-        }
-        guard let albumName = albumName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
+        guard let artistName = artistName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+              let albumName = albumName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
             return
         }
         

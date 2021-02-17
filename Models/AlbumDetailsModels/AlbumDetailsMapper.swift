@@ -25,7 +25,7 @@ final class AlbumDetailsModelMapper {
     
     func mapAPIToUI (apiAlbumDetails: APIAlbumDetailsModel) -> AlbumDetailsModel {
         
-        let imageUrl = apiAlbumDetails.images.filter {$0.size == "large"} .first?.text
+        let imageUrl = apiAlbumDetails.images.filter { $0.size == "large" } .first?.text
         let apiTracks = apiAlbumDetails.tracks.tracks
         
         let mapper = TrackModelMapper()

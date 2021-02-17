@@ -24,6 +24,7 @@ final class NetworkLayer: NetworkLayerProtocol {
             switch response.result {
             case .success(let data):
                 do {
+                    
                     let object = try JSONDecoder().decode(T.self, from: data, keyPath: keyPath)
                     completion(.success(object))
                 } catch let error {
