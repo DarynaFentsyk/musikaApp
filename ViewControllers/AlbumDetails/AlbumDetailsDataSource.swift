@@ -10,9 +10,12 @@ import UIKit
 final class AlbumDetailsDataSource: NSObject {
     
     private var tableView: UITableView!
-    private var tracks: [TrackModel] = []
+    private var album: AlbumDetailsModel
     
-    required init(tableView: UITableView) {
+    required init(tableView: UITableView, album: AlbumDetailsModel) {
+        // ?????
+        self.album = album
+
         super .init()
         
         self.tableView = tableView
@@ -23,8 +26,9 @@ final class AlbumDetailsDataSource: NSObject {
         
     }
     
-    func update(withTracks tracks: [TrackModel]) {
-        self.tracks = tracks
+    func update(withAlbums albums: AlbumDetailsModel) {
+        
+        self.album = albums
         self.tableView.reloadData()
     }
 }
@@ -32,13 +36,14 @@ final class AlbumDetailsDataSource: NSObject {
 extension AlbumDetailsDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tracks.count
+//        crash?
+        return self.album.tracks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TracksTableViewCell", for: indexPath) as! TracksTableViewCell
-        let tracks = self.tracks[indexPath.row]
+        let tracks = self.album.tracks[indexPath.row]
         let model = TracksTableViewCell.Model(index: indexPath.row + 1, title: tracks.name, duration: tracks.duration)
         cell.configure(model: model)
         return cell

@@ -48,7 +48,16 @@ final class AlbumDetailsLogicController {
 extension AlbumDetailsLogicController: AlbumDetailsLogicControllerProtocol {
     
     func loadAlbumInfo() {
-        // TO-DO
+        
+        self.dependency.musicManager.getAlbumDetails(album: self.parameter.album) { [weak self] (result) in
+            
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let album):
+                self?.view?.showAlbumInfo(album: album)
+            }
+        }
     }
     
     func isFavourite() -> Bool {

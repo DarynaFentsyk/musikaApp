@@ -9,7 +9,7 @@ import UIKit
 
 protocol AlbumDetailsViewControllerProtocol: UIViewController {
     
-    func showAlbumInfo(tracks: [TrackModel]) 
+    func showAlbumInfo(album: AlbumDetailsModel) 
 }
 
 final class AlbumDetailsViewController: BaseViewController {
@@ -22,6 +22,7 @@ final class AlbumDetailsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.logicController.loadAlbumInfo()
     }
     
@@ -30,7 +31,6 @@ final class AlbumDetailsViewController: BaseViewController {
         self.dataSource = AlbumDetailsDataSource(tableView: self.tableView)
         self.setUpHeaderView()
         self.setUpFavouriteButton()
-        
     }
     
     private func setUpHeaderView() {
@@ -38,7 +38,8 @@ final class AlbumDetailsViewController: BaseViewController {
         let headerView = AlbumHeaderView.make()
         let headerViewModel = AlbumHeaderView.Model(imageUrl: self.logicController.album.imageURl,
                                                     artistName: self.logicController.album.artist,
-                                                    albumName: self.logicController.album.name)
+                                                    albumName: self.logicController.album.name
+        )
         headerView.configure(model: headerViewModel)
         headerView.frame.size.height = headerView.viewHeight
         self.tableView.tableHeaderView = headerView
@@ -57,13 +58,13 @@ final class AlbumDetailsViewController: BaseViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlbumDetailsViewController") as! AlbumDetailsViewController
         logicController.view = vc
         vc.logicController = logicController
-        
         return vc
     }
     
     @objc private func favouriteButtonTapped() {
         
         self.logicController.toggleFavourite { [weak self] error in
+            
             guard let self = self else {
                 return
             }
@@ -77,10 +78,7 @@ final class AlbumDetailsViewController: BaseViewController {
 }
 
 extension AlbumDetailsViewController: AlbumDetailsViewControllerProtocol {
-    func showAlbumInfo(tracks: [TrackModel]) {
-        self.dataSource.update(withTracks: tracks)
+    func showAlbumInfo(album: AlbumDetailsModel) {
+        self.dataSource.update(withAlbums: album)
     }
-    
-    
 }
-
