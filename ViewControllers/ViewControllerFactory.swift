@@ -20,8 +20,7 @@ final class ViewControllerFactory {
                                                                                     apiService: LastFMService(),
                                                                                     dbService: dataBaseService,
                                                                                     artistModelMapper: ArtistModelMapper(),
-                                                                                    albumModelMapper: AlbumModelMapper(),
-                                                                                    albumDetailsModelMapper: AlbumDetailsModelMapper(trackModelMapper: TrackModelMapper())))
+                                                                                    albumModelMapper: AlbumModelMapper(trackModelMapper: TrackModelMapper())))
         )
         
         let logicController = HomeLogicController(dependency: dependency)
@@ -39,8 +38,7 @@ final class ViewControllerFactory {
                                                                                         apiService: LastFMService(),
                                                                                         dbService: dataBaseService,
                                                                                         artistModelMapper: ArtistModelMapper(),
-                                                                                        albumModelMapper: AlbumModelMapper(),
-                                                                                        albumDetailsModelMapper: AlbumDetailsModelMapper(trackModelMapper: TrackModelMapper())))
+                                                                                        albumModelMapper: AlbumModelMapper(trackModelMapper: TrackModelMapper())))
         )
         
         let logicController = SearchLogicController(dependency: dependency)
@@ -56,9 +54,9 @@ final class ViewControllerFactory {
         
         let dependency = TopAlbumsLogicController.Dependency(musicManager: MusikManager(dependency: .init(
                                                                                             apiService: LastFMService(),
-                                                                                            dbService: dataBaseService, artistModelMapper: ArtistModelMapper(),
-                                                                                            albumModelMapper: AlbumModelMapper(),
-                                                                                            albumDetailsModelMapper: AlbumDetailsModelMapper(trackModelMapper: TrackModelMapper())))
+                                                                                            dbService: dataBaseService,
+                                                                                            artistModelMapper: ArtistModelMapper(),
+                                                                                            albumModelMapper: AlbumModelMapper(trackModelMapper: TrackModelMapper())))
         )
         
         let parameter = TopAlbumsLogicController.Parameter(artist: artist)
@@ -67,8 +65,22 @@ final class ViewControllerFactory {
         return vc
     }
     
-    static func makeAlbumDetails(album: AlbumModel) {
-        //TO DO
-        fatalError()
+    static func makeAlbumDetails(album: AlbumModel) -> AlbumDetailsViewControllerProtocol? {
+        
+        guard let dataBaseService = DataBaseService(configuration: .defaultConfiguration) else {
+            return nil
+        }
+        
+        let dependency = AlbumDetailsLogicController.Dependency(musicManager: MusikManager(dependency: .init(
+                                                                                            apiService: LastFMService(),
+                                                                                            dbService: dataBaseService,
+                                                                                            artistModelMapper: ArtistModelMapper(),
+                                                                                            albumModelMapper: AlbumModelMapper(trackModelMapper: TrackModelMapper())))
+        )
+        
+        let parameter = AlbumDetailsLogicController.Parameter(album: album)
+        let logicController = AlbumDetailsLogicController(dependency: dependency, parameter: parameter)
+        let vc = AlbumDetailsViewController.make(logicController: logicController)
+        return vc
     }
 }

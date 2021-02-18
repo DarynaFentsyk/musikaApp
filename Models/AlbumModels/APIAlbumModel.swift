@@ -12,7 +12,7 @@ struct APIAlbumModel: Codable {
     let mbid: String?
     let name: String
     let artist: APIArtistModel
-    let images: [APIImageModel]
+    let images: [APIImageModel]?
     
     enum CodingKeys: String, CodingKey {
         

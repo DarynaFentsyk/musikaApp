@@ -11,9 +11,9 @@ import UIKit
 extension UIImage {
     
     class func favIcon(isFav: Bool) -> UIImage? {
+        
         let saveIcon = UIImage(systemName: "add")
         let delIcon  = UIImage(systemName: "trash")
-        
-        return isFav ? saveIcon : delIcon
+        return isFav ? delIcon : saveIcon
     }
 }

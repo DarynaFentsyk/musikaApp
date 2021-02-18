@@ -87,7 +87,7 @@ final class HomeViewController: BaseViewController {
         self.navigationController?.pushViewController(topAlbumVC, animated: true)
     }
     
-    private func showAlbumDetails(withAlbum album: AlbumDetailsModel) {
+    private func showAlbumDetails(withAlbum album: AlbumModel) {
         //TO-DO
     }
 }

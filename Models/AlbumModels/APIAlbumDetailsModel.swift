@@ -11,9 +11,9 @@ struct APIAlbumDetailsModel: Codable {
     
     let mbid: String?
     let name: String
-    let artist: APIArtistModel
-    let images: [APIImageModel]
-    let tracks: APITracksModel
+    let artist: String
+    let images: [APIImageModel]?
+    let tracks: APITracksModel?
     
     enum CodingKeys: String, CodingKey {
         

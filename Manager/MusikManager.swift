@@ -11,21 +11,21 @@ protocol MusikManagerProtocol {
     
     func getAlbum(artistName: String, completion: @escaping ResultHandler<[AlbumModel], Error>)
     func getArtist(artistName: String, completion: @escaping ResultHandler<[ArtistModel], Error>)
-    func getAlbumDetails(album: AlbumDetailsModel, completion: @escaping ResultHandler<AlbumDetailsModel, Error>)
+    func getAlbumDetails(album: AlbumModel, completion: @escaping ResultHandler<AlbumModel, Error>)
     func getSavedAlbums(completion: @escaping ResultHandler<[AlbumModel], Error>)
-    func saveAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler)
-    func deleteAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler )
-    func isAlbumFavourite(album: AlbumDetailsModel) -> Bool
+    func saveAlbum(album: AlbumModel, completion: @escaping ErrorHandler)
+    func deleteAlbum(album: AlbumModel, completion: @escaping ErrorHandler )
+    func isAlbumFavourite(album: AlbumModel) -> Bool
 }
 
 final class MusikManager {
     
     struct Dependency {
+        
         let apiService: LastFMServiceProtocol
         let dbService: DataBaseServiceProtocol
         let artistModelMapper: ArtistModelMapper
         let albumModelMapper: AlbumModelMapper
-        let albumDetailsModelMapper: AlbumDetailsModelMapper
     }
     
     private var dependency: Dependency
@@ -75,7 +75,7 @@ extension MusikManager: MusikManagerProtocol {
         }
     }
     
-    func getAlbumDetails(album: AlbumDetailsModel, completion: @escaping ResultHandler<AlbumDetailsModel, Error>){
+    func getAlbumDetails(album: AlbumModel, completion: @escaping ResultHandler<AlbumModel, Error>){
         
         self.dependency.apiService.getAlbumDetails(artistName: album.artist, albumName: album.name) { [weak self] result in
             
@@ -86,9 +86,9 @@ extension MusikManager: MusikManagerProtocol {
             switch result {
             case .failure(let error):
                 completion(.failure(error))
-            case .success(let apiAlbumDetails):
+            case .success(let apiAlbum):
                 
-                let album = self.dependency.albumDetailsModelMapper.mapAPIToUI(apiAlbumDetails: apiAlbumDetails)
+                let album = self.dependency.albumModelMapper.mapAPIToUI(apiAlbumDetail: apiAlbum)
                 completion(.success(album))
             }
             
@@ -99,17 +99,17 @@ extension MusikManager: MusikManagerProtocol {
         // TO-DO
     }
     
-    func saveAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler) {
+    func saveAlbum(album: AlbumModel, completion: @escaping ErrorHandler) {
         
-        let dbAlbum = self.dependency.albumDetailsModelMapper.mapUIToDB(album: album)
+        let dbAlbum = self.dependency.albumModelMapper.mapUIToDB(album: album)
         self.dependency.dbService.saveAlbum(dbAlbum: dbAlbum, completion: completion)
     }
     
-    func deleteAlbum(album: AlbumDetailsModel, completion: @escaping ErrorHandler ) {
+    func deleteAlbum(album: AlbumModel, completion: @escaping ErrorHandler ) {
         self.dependency.dbService.deleteAlbum(id: album.id, completion: completion)
     }
     
-    func isAlbumFavourite(album: AlbumDetailsModel) -> Bool {
+    func isAlbumFavourite(album: AlbumModel) -> Bool {
         return self.dependency.dbService.isAlbumSaved(id: album.id)
     }
 }

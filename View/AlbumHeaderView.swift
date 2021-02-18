@@ -19,11 +19,10 @@ class AlbumHeaderView: UIView {
     @IBOutlet private weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var trailingConstraint: NSLayoutConstraint!
     
-    
     static func make() -> AlbumHeaderView {
+        
         guard let view = Bundle.main.loadNibNamed("AlbumHeaderView", owner: nil, options: nil)?.first as? AlbumHeaderView  else {
             fatalError("UIView isn't in main bundle")
-
         }
         return view
     }
@@ -31,12 +30,11 @@ class AlbumHeaderView: UIView {
     var viewHeight: CGFloat{
         
         let screenWidth = UIScreen.main.bounds.width
-        let arrangedSubview = horizontalStackView.arrangedSubviews.count
-        let spacingCount = horizontalStackView.arrangedSubviews.count > 1 ? horizontalStackView.arrangedSubviews.count - 1 : 0
-        let horizontalPadding = leadingConstraint.constant + trailingConstraint.constant + (horizontalStackView.spacing * CGFloat(spacingCount))
+        let arrangedSubview = self.horizontalStackView.arrangedSubviews.count
+        let spacingCount = self.horizontalStackView.arrangedSubviews.count > 1 ? self.horizontalStackView.arrangedSubviews.count - 1 : 0
+        let horizontalPadding = self.leadingConstraint.constant + self.trailingConstraint.constant + (self.horizontalStackView.spacing * CGFloat(spacingCount))
         let imageWidth  = (screenWidth - horizontalPadding) / CGFloat(arrangedSubview)
-        let finalHeight = imageWidth + topConstraint.constant + bottomConstraint.constant
-        
+        let finalHeight = imageWidth + self.topConstraint.constant + self.bottomConstraint.constant
         return finalHeight
     }
 }

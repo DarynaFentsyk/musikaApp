@@ -70,8 +70,12 @@
             <connections>
                 <outlet property="albumTitle" destination="4FI-It-oAB" id="XvP-cp-psp"/>
                 <outlet property="artistLabel" destination="ByL-zs-yt5" id="LYH-Rv-OW3"/>
+                <outlet property="bottomConstraint" destination="Z3u-bV-aSv" id="GDP-5a-hwk"/>
                 <outlet property="horizontalStackView" destination="SkH-co-AYy" id="HY0-7i-pKM"/>
                 <outlet property="imageView" destination="lDm-aZ-U6h" id="qiX-no-Zjn"/>
+                <outlet property="leadingConstraint" destination="vOR-Dg-ZyP" id="bfi-8W-Yg0"/>
+                <outlet property="topConstraint" destination="ECU-S5-1fQ" id="Mwm-bi-WHl"/>
+                <outlet property="trailingConstraint" destination="f5k-iX-a79" id="uES-II-jln"/>
             </connections>
             <point key="canvasLocation" x="-35" y="288"/>
         </view>

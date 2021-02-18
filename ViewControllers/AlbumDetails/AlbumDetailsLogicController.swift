@@ -10,7 +10,7 @@ import Foundation
 protocol AlbumDetailsLogicControllerProtocol: class {
     
     var view: AlbumDetailsViewControllerProtocol? { get set }
-    var album: AlbumDetailsModel { get set }
+    var album: AlbumModel { get set }
     func loadAlbumInfo()
     func isFavourite() -> Bool
     func toggleFavourite(completion: @escaping ErrorHandler)
@@ -22,11 +22,11 @@ final class AlbumDetailsLogicController {
         let musicManager: MusikManagerProtocol
     }
     struct Parameter {
-        var album: AlbumDetailsModel
+        var album: AlbumModel
     }
     
     weak var view: AlbumDetailsViewControllerProtocol?
-    var album: AlbumDetailsModel {
+    var album: AlbumModel {
         get {
             return parameter.album
         }
@@ -51,11 +51,20 @@ extension AlbumDetailsLogicController: AlbumDetailsLogicControllerProtocol {
         
         self.dependency.musicManager.getAlbumDetails(album: self.parameter.album) { [weak self] (result) in
             
+            guard let self = self else {
+                return
+            }
+            
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let album):
-                self?.view?.showAlbumInfo(album: album)
+                
+                guard let tracks = album.tracks else {
+                    return
+                }
+                self.view?.showTracks(tracks: tracks)
+                self.album = album
             }
         }
     }

@@ -9,7 +9,7 @@ import UIKit
 
 protocol AlbumDetailsViewControllerProtocol: UIViewController {
     
-    func showAlbumInfo(album: AlbumDetailsModel) 
+    func showTracks(tracks: [TrackModel])
 }
 
 final class AlbumDetailsViewController: BaseViewController {
@@ -24,6 +24,8 @@ final class AlbumDetailsViewController: BaseViewController {
         super.viewDidLoad()
         
         self.logicController.loadAlbumInfo()
+        self.setupUI()
+    
     }
     
     private func setupUI() {
@@ -36,7 +38,7 @@ final class AlbumDetailsViewController: BaseViewController {
     private func setUpHeaderView() {
         
         let headerView = AlbumHeaderView.make()
-        let headerViewModel = AlbumHeaderView.Model(imageUrl: self.logicController.album.imageURl,
+        let headerViewModel = AlbumHeaderView.Model(imageUrl: self.logicController.album.imageUrl,
                                                     artistName: self.logicController.album.artist,
                                                     albumName: self.logicController.album.name
         )
@@ -78,7 +80,8 @@ final class AlbumDetailsViewController: BaseViewController {
 }
 
 extension AlbumDetailsViewController: AlbumDetailsViewControllerProtocol {
-    func showAlbumInfo(album: AlbumDetailsModel) {
-        self.dataSource.update(withAlbums: album)
+    
+    func showTracks(tracks: [TrackModel]) {
+        self.dataSource.update(withTracks: tracks)
     }
 }
