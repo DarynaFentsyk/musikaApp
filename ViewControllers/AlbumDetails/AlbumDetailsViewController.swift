@@ -25,7 +25,6 @@ final class AlbumDetailsViewController: BaseViewController {
         
         self.logicController.loadAlbumInfo()
         self.setupUI()
-    
     }
     
     private func setupUI() {
