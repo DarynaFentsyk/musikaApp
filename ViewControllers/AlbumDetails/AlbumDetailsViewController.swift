@@ -25,14 +25,13 @@ final class AlbumDetailsViewController: BaseViewController {
         
         self.logicController.loadAlbumInfo()
         self.setupUI()
-    
     }
     
     private func setupUI() {
         
         self.dataSource = AlbumDetailsDataSource(tableView: self.tableView)
-        self.setUpHeaderView()
         self.setUpFavouriteButton()
+        self.setUpHeaderView()
     }
     
     private func setUpHeaderView() {
