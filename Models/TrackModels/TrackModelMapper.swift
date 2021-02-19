@@ -17,9 +17,7 @@ protocol TrackModelMapperProtocol {
 final class TrackModelMapper: TrackModelMapperProtocol {
     
     func mapAPIToUI(apiTrack: APITrackModel) -> TrackModel {
-        
-        let trackModelMapper = TrackModel(name: apiTrack.name)
-        return trackModelMapper
+        return TrackModel(name: apiTrack.name, duration: apiTrack.duration)
     }
     
     func mapUIToDB(track: TrackModel) -> DBTrackModel {
@@ -30,8 +28,6 @@ final class TrackModelMapper: TrackModelMapperProtocol {
     }
     
     func mapDBtoUI(dbTrack: DBTrackModel) -> TrackModel {
-        
-        let tracks = TrackModel(name: dbTrack.name)
-        return tracks
+        return TrackModel(name: dbTrack.name, duration: dbTrack.duration)
     }
 }

@@ -16,6 +16,7 @@ final class SearchCollectionViewCell: UICollectionViewCell {
 extension SearchCollectionViewCell: ViewConfigurable {
     
     struct Model {
+        
         let imageURL: URL?
         let title: String
     }

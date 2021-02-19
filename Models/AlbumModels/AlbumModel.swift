@@ -13,4 +13,5 @@ struct AlbumModel {
     let name: String
     let artist: String
     let imageUrl: URL?
+    let tracks: [TrackModel]?
 }

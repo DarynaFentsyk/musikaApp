@@ -43,15 +43,21 @@ final class TopAlbumsCollectionViewController: BaseViewController {
     private func setupUI() {
         
         self.dataSource = TopAlbumsDatasourceController(collectionView: self.collectionView, logicController: self.logicController)
-        self.dataSource.didSelectClosure = { [weak self] artist in
+        self.dataSource.didSelectClosure = { [weak self] album in
             
-            guard let self = self
-            //            let vc = ViewControllerFactory.makeAlbumList(artist: artist)
-            //            TO-DO
-            else {
+            guard let self = self else {
                 return
             }
+            self.showAlbumDetails(withAlbum: album)
         }
+    }
+    
+    private func showAlbumDetails(withAlbum album: AlbumModel) {
+        
+        guard let detailsVc = ViewControllerFactory.makeAlbumDetails(album: album) else {
+            return
+        }
+        self.navigationController?.pushViewController(detailsVc, animated: true)
     }
 }
 
