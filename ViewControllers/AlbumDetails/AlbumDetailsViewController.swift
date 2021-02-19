@@ -50,7 +50,7 @@ final class AlbumDetailsViewController: BaseViewController {
         
         let image = UIImage.favIcon(isFav: self.logicController.isFavourite())
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.favouriteButtonTapped))
-        self.navigationItem.rightBarButtonItem =  button
+        self.navigationItem.rightBarButtonItem = button
         self.favouriteButton = button
     }
     
