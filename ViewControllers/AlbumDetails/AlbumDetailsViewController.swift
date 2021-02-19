@@ -31,8 +31,8 @@ final class AlbumDetailsViewController: BaseViewController {
     private func setupUI() {
         
         self.dataSource = AlbumDetailsDataSource(tableView: self.tableView)
-        self.setUpHeaderView()
         self.setUpFavouriteButton()
+        self.setUpHeaderView()
     }
     
     private func setUpHeaderView() {
@@ -51,7 +51,7 @@ final class AlbumDetailsViewController: BaseViewController {
         
         let image = UIImage.favIcon(isFav: self.logicController.isFavourite())
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.favouriteButtonTapped))
-        self.navigationItem.rightBarButtonItem = button
+        self.navigationItem.rightBarButtonItem =  button
         self.favouriteButton = button
     }
     

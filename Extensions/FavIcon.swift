@@ -12,7 +12,7 @@ extension UIImage {
     
     class func favIcon(isFav: Bool) -> UIImage? {
         
-        let saveIcon = UIImage(systemName: "add")
+        let saveIcon = UIImage(systemName: "plus")
         let delIcon  = UIImage(systemName: "trash")
         return isFav ? delIcon : saveIcon
     }
