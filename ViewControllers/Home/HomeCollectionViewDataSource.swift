@@ -53,23 +53,27 @@ extension HomeCollectionViewDataSource: UICollectionViewDataSource {
         let album = self.albums[indexPath.item]
         let cellModel = SearchCollectionViewCell.Model(imageURL: album.imageUrl, title: album.name)
         cell.configure(model: cellModel)
+//        cell.backgroundColor = .red
         return cell
     }
 }
 
 extension HomeCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.didSelectClosure?(self.albums[indexPath.item])
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout
+        flowLayout?.estimatedItemSize = .zero
         let minimumInteritemSpacing = flowLayout?.minimumInteritemSpacing ?? 0
         let cellWidth = collectionView.frame.size.width / Const.numberOfColumns - minimumInteritemSpacing/2
         let labelHeight = cellWidth / 4
         return CGSize(width: cellWidth, height: cellWidth + labelHeight)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.didSelectClosure?(self.albums[indexPath.item])
+    }
+    
+    
 }
 
