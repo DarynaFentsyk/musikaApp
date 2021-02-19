@@ -53,7 +53,6 @@ extension HomeCollectionViewDataSource: UICollectionViewDataSource {
         let album = self.albums[indexPath.item]
         let cellModel = SearchCollectionViewCell.Model(imageURL: album.imageUrl, title: album.name)
         cell.configure(model: cellModel)
-//        cell.backgroundColor = .red
         return cell
     }
 }
@@ -73,7 +72,5 @@ extension HomeCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.didSelectClosure?(self.albums[indexPath.item])
     }
-    
-    
 }
 
