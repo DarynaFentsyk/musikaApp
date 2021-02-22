@@ -58,11 +58,7 @@ final class HomeViewController: BaseViewController {
         
         self.dataSource = HomeCollectionViewDataSource(collectionView: self.collectionView)
         self.dataSource.didSelectClosure = { [weak self] album in
-            
-            guard let self = self else{
-                return
-            }
-            self.showAlbumDetails(withAlbum: album)
+            self.map { $0.showAlbumDetails(withAlbum: album) }
         }
     }
     
