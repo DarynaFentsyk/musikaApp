@@ -11,13 +11,11 @@ protocol SearchLogicControllerProtocol: class {
     
     var view: SearchViewControllerProtocol? { get set }
     func getArtists(name: String)
-    func resetArtistList()
 }
 
 final class SearchLogicController: SearchLogicControllerProtocol {
     
     weak var view: SearchViewControllerProtocol?
-    var emptyArtistList: [ArtistModel] = []
     
     struct Dependency {
         let musicManager: MusikManagerProtocol
@@ -40,9 +38,5 @@ final class SearchLogicController: SearchLogicControllerProtocol {
                 print(error)
             }
         }
-    }
-    
-    func resetArtistList(){
-        self.view?.showEmptyArray(artists: emptyArtistList)
     }
 }

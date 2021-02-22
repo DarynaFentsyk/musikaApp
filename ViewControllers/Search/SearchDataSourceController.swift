@@ -29,12 +29,6 @@ final class SearchDataSourceController: NSObject {
         self.artists = artists
         self.tableView?.reloadData()
     }
-    
-    func resetArtist() {
-        
-        self.artists = []
-        self.tableView?.reloadData()
-    }
 }
 
 extension SearchDataSourceController: UITableViewDataSource {
