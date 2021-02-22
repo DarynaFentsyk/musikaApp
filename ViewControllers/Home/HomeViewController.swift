@@ -35,18 +35,15 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         
         self.navigationItem.searchController = search
-        
+        self.navigationItem.hidesSearchBarWhenScrolling = false
         search.searchResultsUpdater = searchViewController
-        search.obscuresBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        
         self.setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //        self.logicController.loadSavedAlbums()
-        //        TO-DO
+        
+        self.logicController.loadSavedAlbums()
     }
     
     static func make(logicController: HomeLogicControllerProtocol) -> HomeViewControllerProtocol {
@@ -65,7 +62,7 @@ final class HomeViewController: BaseViewController {
             guard let self = self else{
                 return
             }
-//            TO-DO
+            self.showAlbumDetails(withAlbum: album)
         }
     }
     
@@ -88,7 +85,11 @@ final class HomeViewController: BaseViewController {
     }
     
     private func showAlbumDetails(withAlbum album: AlbumModel) {
-        //TO-DO
+        
+        guard let detailsVc = ViewControllerFactory.makeAlbumDetails(album: album) else {
+            return
+        }
+        self.navigationController?.pushViewController(detailsVc, animated: true)
     }
 }
 

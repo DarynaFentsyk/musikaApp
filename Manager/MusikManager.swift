@@ -91,12 +91,14 @@ extension MusikManager: MusikManagerProtocol {
                 let album = self.dependency.albumModelMapper.mapAPIToUI(apiAlbumDetail: apiAlbum)
                 completion(.success(album))
             }
-            
         }
     }
     
     func getSavedAlbums(completion: @escaping ResultHandler<[AlbumModel], Error>) {
-        // TO-DO
+    
+        let dbAlbum = self.dependency.dbService.getAlbum()
+        let albums = dbAlbum.map { self.dependency.albumModelMapper.mapDBToUi(dbAlbum: $0) }
+        completion(.success(albums))
     }
     
     func saveAlbum(album: AlbumModel, completion: @escaping ErrorHandler) {
