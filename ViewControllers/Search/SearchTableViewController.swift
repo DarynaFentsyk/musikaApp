@@ -9,9 +9,9 @@ import UIKit
 
 protocol SearchViewControllerProtocol: UIViewController, UISearchResultsUpdating {
     
+    var didSelectClosure: ((_ artist: ArtistModel) -> Void)? { get set }
     func showArtists(artists: [ArtistModel])
     func showEmptyArray(artists: [ArtistModel])
-    var didSelectClosure: ((_ artist: ArtistModel) -> Void)? { get set }
 }
 
 final class SearchViewController: UIViewController {
@@ -72,7 +72,7 @@ final class SearchViewController: UIViewController {
 extension SearchViewController: SearchViewControllerProtocol {
     
     func showEmptyArray(artists: [ArtistModel]) {
-        self.dataSource.resetArtist()
+        self.dataSource.updateArtist(withArtists: [])
     }
     
     func showArtists(artists: [ArtistModel]) {
@@ -83,19 +83,7 @@ extension SearchViewController: SearchViewControllerProtocol {
 extension SearchViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        var timer: Timer?
-        timer?.invalidate()
-        let searchBar = searchController.searchBar
-        
-        guard let text = searchBar.text, text != "" else {
-            return
-        }
-        
-        if text.count >= 3 {
-            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { timer in
-                self.logicController.getArtists(name: text) } }
-        else {
-            self.logicController.resetArtistList()
-        }
+        self.logicController.handleSearchTextDidChange(text: searchController.searchBar.text)
     }
+        
 }
