@@ -24,13 +24,8 @@
 		713034E6256EEE1500697149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 713034E4256EEE1500697149 /* Main.storyboard */; };
 		713034E8256EEE1500697149 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 713034E7256EEE1500697149 /* Assets.xcassets */; };
 		713034EB256EEE1500697149 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 713034E9256EEE1500697149 /* LaunchScreen.storyboard */; };
-		713034F8256EF50D00697149 /* FavoritsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713034F7256EF50D00697149 /* FavoritsViewController.swift */; };
-		713034FB256EF70600697149 /* FavoritsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713034FA256EF70600697149 /* FavoritsCell.swift */; };
 		71303502256F10F100697149 /* DBAlbumDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71303501256F10F100697149 /* DBAlbumDetailsModel.swift */; };
 		7130350F257040B800697149 /* APIArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7130350E257040B800697149 /* APIArtistModel.swift */; };
-		7149B4BF257C048E00511749 /* DetailsFavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7149B4BE257C048E00511749 /* DetailsFavouriteTableViewController.swift */; };
-		7149B4C3257D73A000511749 /* RealmExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7149B4C2257D73A000511749 /* RealmExtensions.swift */; };
-		7149B4C9257D7F5A00511749 /* LastFmAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7149B4C8257D7F5A00511749 /* LastFmAPIService.swift */; };
 		715F405425754C8600BDBC23 /* APIAlbumDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F405325754C8600BDBC23 /* APIAlbumDetailsModel.swift */; };
 		715F40792577DC2D00BDBC23 /* APITrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715F40782577DC2D00BDBC23 /* APITrackModel.swift */; };
 		716B1B8125D2EAED00B7FA7F /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716B1B8025D2EAED00B7FA7F /* SearchTableViewController.swift */; };
@@ -89,19 +84,9 @@
 		713034E7256EEE1500697149 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		713034EA256EEE1500697149 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		713034EC256EEE1500697149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		713034F7256EF50D00697149 /* FavoritsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritsViewController.swift; sourceTree = "<group>"; };
-		713034FA256EF70600697149 /* FavoritsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritsCell.swift; sourceTree = "<group>"; };
 		71303501256F10F100697149 /* DBAlbumDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAlbumDetailsModel.swift; sourceTree = "<group>"; };
 		7130350E257040B800697149 /* APIArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIArtistModel.swift; sourceTree = "<group>"; };
-		71303515257156A400697149 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
-		7130351825715C3500697149 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
-		7149B4BE257C048E00511749 /* DetailsFavouriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFavouriteTableViewController.swift; sourceTree = "<group>"; };
-		7149B4C2257D73A000511749 /* RealmExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtensions.swift; sourceTree = "<group>"; };
-		7149B4C8257D7F5A00511749 /* LastFmAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFmAPIService.swift; sourceTree = "<group>"; };
 		715F405325754C8600BDBC23 /* APIAlbumDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAlbumDetailsModel.swift; sourceTree = "<group>"; };
-		715F40582575519700BDBC23 /* TopAlbumsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumsCollectionViewController.swift; sourceTree = "<group>"; };
-		715F405B257551D400BDBC23 /* TopAlbumsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumsCollectionViewCell.swift; sourceTree = "<group>"; };
-		715F40602576E97500BDBC23 /* TopAlbumDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumDetailsTableViewController.swift; sourceTree = "<group>"; };
 		715F40782577DC2D00BDBC23 /* APITrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITrackModel.swift; sourceTree = "<group>"; };
 		716B1B8025D2EAED00B7FA7F /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		716B1B8325D2EAF700B7FA7F /* SearchLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLogicController.swift; sourceTree = "<group>"; };
@@ -258,34 +243,11 @@
 			children = (
 				713034DE256EEE1500697149 /* AppDelegate.swift */,
 				713034E0256EEE1500697149 /* SceneDelegate.swift */,
-				7149B4C8257D7F5A00511749 /* LastFmAPIService.swift */,
-				715F40652576EBDA00BDBC23 /* TopAlbumsControllers */,
-				71F40A9725742EB900E9B14C /* SearchControllers */,
-				71F40A9825742EE800E9B14C /* FavoritsControllers */,
 				713034E7256EEE1500697149 /* Assets.xcassets */,
 				713034E9256EEE1500697149 /* LaunchScreen.storyboard */,
 				713034EC256EEE1500697149 /* Info.plist */,
-				7149B4C5257D73AE00511749 /* Extensions */,
 			);
 			path = musikaApp;
-			sourceTree = "<group>";
-		};
-		7149B4C5257D73AE00511749 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				7149B4C2257D73A000511749 /* RealmExtensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		715F40652576EBDA00BDBC23 /* TopAlbumsControllers */ = {
-			isa = PBXGroup;
-			children = (
-				715F40582575519700BDBC23 /* TopAlbumsCollectionViewController.swift */,
-				715F405B257551D400BDBC23 /* TopAlbumsCollectionViewCell.swift */,
-				715F40602576E97500BDBC23 /* TopAlbumDetailsTableViewController.swift */,
-			);
-			path = TopAlbumsControllers;
 			sourceTree = "<group>";
 		};
 		716B1B7F25D2EAD400B7FA7F /* Search */ = {
@@ -382,25 +344,6 @@
 				71E3D04725D5340F0004EBC6 /* TopAlbumsLogicController.swift */,
 			);
 			path = TopAlbums;
-			sourceTree = "<group>";
-		};
-		71F40A9725742EB900E9B14C /* SearchControllers */ = {
-			isa = PBXGroup;
-			children = (
-				71303515257156A400697149 /* SearchTableViewController.swift */,
-				7130351825715C3500697149 /* SearchTableViewCell.swift */,
-			);
-			path = SearchControllers;
-			sourceTree = "<group>";
-		};
-		71F40A9825742EE800E9B14C /* FavoritsControllers */ = {
-			isa = PBXGroup;
-			children = (
-				713034FA256EF70600697149 /* FavoritsCell.swift */,
-				713034F7256EF50D00697149 /* FavoritsViewController.swift */,
-				7149B4BE257C048E00511749 /* DetailsFavouriteTableViewController.swift */,
-			);
-			path = FavoritsControllers;
 			sourceTree = "<group>";
 		};
 		71F40A9A25742F0100E9B14C /* ArtistModels */ = {
@@ -574,8 +517,6 @@
 				7174395225CD43B400038B9E /* HomeViewController.swift in Sources */,
 				718D2E2125CAFD270082ADEE /* AlbumModel.swift in Sources */,
 				7174391025CBF3BE00038B9E /* TrackModelMapper.swift in Sources */,
-				7149B4C3257D73A000511749 /* RealmExtensions.swift in Sources */,
-				7149B4C9257D7F5A00511749 /* LastFmAPIService.swift in Sources */,
 				7130350F257040B800697149 /* APIArtistModel.swift in Sources */,
 				7174395925CD488600038B9E /* HomeLogicController.swift in Sources */,
 				7112AC3925DABD5500BD8938 /* AlbumDetailsLogicController.swift in Sources */,
@@ -587,9 +528,7 @@
 				71E04C7725D1510E00CA73CF /* LastFMService.swift in Sources */,
 				71303502256F10F100697149 /* DBAlbumDetailsModel.swift in Sources */,
 				71E3D04825D5340F0004EBC6 /* TopAlbumsLogicController.swift in Sources */,
-				7149B4BF257C048E00511749 /* DetailsFavouriteTableViewController.swift in Sources */,
 				715F40792577DC2D00BDBC23 /* APITrackModel.swift in Sources */,
-				713034F8256EF50D00697149 /* FavoritsViewController.swift in Sources */,
 				7112AC3F25DADEDB00BD8938 /* FavIcon.swift in Sources */,
 				71E3D04125D533D20004EBC6 /* TopAlbumsCollectionViewController.swift in Sources */,
 				716B1B9C25D41E0F00B7FA7F /* SearchTableViewCell.swift in Sources */,
@@ -597,7 +536,6 @@
 				711E04B025D168C400FF2287 /* MusikManager.swift in Sources */,
 				7112AC3C25DAD38700BD8938 /* AlbumDetailsDataSource.swift in Sources */,
 				718D2E0A25CAD2A30082ADEE /* SearchCollectionViewCell.swift in Sources */,
-				713034FB256EF70600697149 /* FavoritsCell.swift in Sources */,
 				71E3D04525D533F70004EBC6 /* TopAlbumsDatasourceController.swift in Sources */,
 				718D2E2525CAFD3B0082ADEE /* TrackModel.swift in Sources */,
 				7174394C25CD3F4100038B9E /* ViewControllerFactory.swift in Sources */,
