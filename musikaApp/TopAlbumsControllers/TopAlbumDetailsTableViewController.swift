@@ -1,18 +1,18 @@
-////
-////  TopAlbumDetailsTableViewController.swift
-////  Pods
-////
-////  Created by Daryna Fentsyk on 01.12.20.
-////
 //
-//import UIKit
-//import Alamofire
-//import AlamofireImage
-//import RealmSwift
+//  TopAlbumDetailsTableViewController.swift
+//  Pods
 //
-//var topAlbumDetails: AlbumDetails?
+//  Created by Daryna Fentsyk on 01.12.20.
 //
-//class TopAlbumDetailsTableViewController: UITableViewController {
+//
+// import UIKit
+// import Alamofire
+// import AlamofireImage
+// import RealmSwift
+//
+// var topAlbumDetails: AlbumDetails?
+//
+// class TopAlbumDetailsTableViewController: UITableViewController {
 //    @IBOutlet weak var albumCover: UIImageView!
 //    @IBOutlet weak var singerName: UILabel!
 //    @IBOutlet weak var selectedAlbumName: UILabel!
@@ -130,4 +130,4 @@
 //            realm.delete(foundItem)
 //        }
 //    }
-//}
+// }

@@ -21,7 +21,3 @@ final class DBAlbumDetailsModel: Object {
         return "id"
     }
 }
-
-
-
-

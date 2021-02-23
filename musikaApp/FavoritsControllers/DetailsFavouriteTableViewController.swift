@@ -11,7 +11,7 @@ import AlamofireImage
 import RealmSwift
 
 //
-//class DetailsFavouriteTableViewController: UITableViewController {
+// class DetailsFavouriteTableViewController: UITableViewController {
 //
 //    @IBOutlet weak var savedAlbumCover: UIImageView!
 //    @IBOutlet weak var savedArtistName: UILabel!
@@ -105,4 +105,4 @@ import RealmSwift
 //        }
 //        NotificationCenter.default.post(name: NSNotification.Name("Load"), object: nil)
 //    }
-//}
+// }

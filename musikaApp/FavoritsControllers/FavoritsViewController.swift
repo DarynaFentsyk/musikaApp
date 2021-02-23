@@ -1,21 +1,21 @@
-////
-////  FavoritsViewController.swift
-////  musikaApp
-////
-////  Created by Daryna Fentsyk on 25.11.20.
-////
 //
-//import UIKit
-//import Alamofire
-//import AlamofireImage
-//import RealmSwift
+//  FavoritsViewController.swift
+//  musikaApp
 //
-//private let reuseIdentifier = "FavoritsCell"
+//  Created by Daryna Fentsyk on 25.11.20.
 //
-//var favoriteAlbums:[AlbumDetailsModel] = []
-//var filteredAlbums: [AlbumDetailsModel] = []
 //
-//class FavoritsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout  {
+// import UIKit
+// import Alamofire
+// import AlamofireImage
+// import RealmSwift
+//
+// private let reuseIdentifier = "FavoritsCell"
+//
+// var favoriteAlbums:[AlbumDetailsModel] = []
+// var filteredAlbums: [AlbumDetailsModel] = []
+//
+// class FavoritsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout  {
 //    
 //    let imageCache = AutoPurgingImageCache(memoryCapacity: 111_111_111, preferredMemoryUsageAfterPurge: 90_000_000)
 //    
@@ -28,9 +28,9 @@
 //        return search.isActive && !isSearchBarEmpty
 //    }
 //    
-////    @objc func getData() {
-////
-////    }
+//    @objc func getData() {
+//
+//    }
 //    
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
@@ -64,7 +64,7 @@
 //        }
 //        let dbModels = Array(realm.objects(DBAlbumDetailsModel.self))
 //        let mapper: AlbumDetailsModelMapperProtocol = AlbumDetailsModelMapper()
-////        mapper.mapDBToUi(dbAlbumDetails: <#T##DBAlbumDetailsModel#>)
+//        mapper.mapDBToUi(dbAlbumDetails: <#T##DBAlbumDetailsModel#>)
 //        let result = dbModels.map(mapper.mapDBToUi)
 //        favoriteAlbums = result
 //    }
@@ -150,9 +150,9 @@
 //        
 //        self.navigationController?.pushViewController(detVC!, animated: true)
 //    }
-//}
+// }
 //
-//extension FavoritsViewController: UISearchResultsUpdating {
+// extension FavoritsViewController: UISearchResultsUpdating {
 //    @objc func updateSearchResults(for searchController: UISearchController) {
 //        let searchBar = searchController.searchBar
 //        filterContent(searchBar.text!)
@@ -160,4 +160,4 @@
 //        
 //        
 //    }
-//}
+// }

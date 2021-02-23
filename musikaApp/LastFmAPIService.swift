@@ -1,20 +1,20 @@
-////
-////  LastFmAPI.swift
-////  musikaApp
-////
-////  Created by Daryna Fentsyk on 06.12.20.
-////
 //
-//import Foundation
-//import Alamofire
-//import AlamofireImage
+//  LastFmAPI.swift
+//  musikaApp
 //
-//class LastFmApiService: NSObject {
+//  Created by Daryna Fentsyk on 06.12.20.
+//
+//
+// import Foundation
+// import Alamofire
+// import AlamofireImage
+//
+// class LastFmApiService: NSObject {
 //    static let shared = LastFmApiService()
 //    
 //    let apiUrl = "http://ws.audioscrobbler.com/2.0/"
 //    let apiKey = "4c86d8e684a86bb5171350b4bc0b1dc6"
-////    let imageCache = AutoPurgingImageCache(memoryCapacity: 111_111_111, preferredMemoryUsageAfterPurge: 90_000_000)
+//    let imageCache = AutoPurgingImageCache(memoryCapacity: 111_111_111, preferredMemoryUsageAfterPurge: 90_000_000)
 //
 //    
 //    private override init() {
@@ -99,4 +99,4 @@
 //        }
 //    }
 //    
-//}
+// }

@@ -69,13 +69,13 @@ extension MusikManager: MusikManagerProtocol {
                 completion(.failure(error))
             case .success(let apiArtist):
                 
-                let artists = apiArtist.map{self.dependency.artistModelMapper.mapAPIToUI(apiArtist: $0)}
+                let artists = apiArtist.map {self.dependency.artistModelMapper.mapAPIToUI(apiArtist: $0)}
                 completion(.success(artists))
             }
         }
     }
     
-    func getAlbumDetails(album: AlbumModel, completion: @escaping ResultHandler<AlbumModel, Error>){
+    func getAlbumDetails(album: AlbumModel, completion: @escaping ResultHandler<AlbumModel, Error>) {
         
         self.dependency.apiService.getAlbumDetails(artistName: album.artist, albumName: album.name) { [weak self] result in
             

@@ -1,18 +1,18 @@
-////
-////  SearchTableViewController.swift
-////  musikaApp
-////
-////  Created by Daryna Fentsyk on 27.11.20.
-////
 //
-//import UIKit
-//import Alamofire
-//import AlamofireImage
+//  SearchTableViewController.swift
+//  musikaApp
 //
-//private let reuseIdentifier = "SearchCell"
-//var filteredArtist: [Artist] = []
+//  Created by Daryna Fentsyk on 27.11.20.
 //
-//class SearchTableViewController: UITableViewController {
+//
+// import UIKit
+// import Alamofire
+// import AlamofireImage
+//
+// private let reuseIdentifier = "SearchCell"
+// var filteredArtist: [Artist] = []
+//
+// class SearchTableViewController: UITableViewController {
 //    
 //    let search = UISearchController(searchResultsController: nil)
 //    let imageCache = AutoPurgingImageCache(memoryCapacity: 111_111_111, preferredMemoryUsageAfterPurge: 90_000_000)
@@ -91,13 +91,13 @@
 //    {
 //        return UITableView.automaticDimension
 //    }
-//}
+// }
 //
-//extension SearchTableViewController: UISearchResultsUpdating {
+// extension SearchTableViewController: UISearchResultsUpdating {
 //    func updateSearchResults(for searchController: UISearchController) {
 //        let searchBar = searchController.searchBar
-////        filterContent(searchBar.text!)
+//        filterContent(searchBar.text!)
 //
 //    }
 //
-//}
+// }

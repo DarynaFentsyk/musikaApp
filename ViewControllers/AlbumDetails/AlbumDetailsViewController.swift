@@ -71,7 +71,7 @@ final class AlbumDetailsViewController: BaseViewController {
             }
             
             if let error = error {
-                print (error)
+                print(error)
             }
             self.favouriteButton.image = UIImage.favIcon(isFav: self.logicController.isFavourite())
         }

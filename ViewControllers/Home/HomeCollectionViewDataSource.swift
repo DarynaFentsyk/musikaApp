@@ -43,7 +43,7 @@ final class HomeCollectionViewDataSource: NSObject {
 
 extension HomeCollectionViewDataSource: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.albums.count
     }
     
@@ -73,4 +73,3 @@ extension HomeCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
         self.didSelectClosure?(self.albums[indexPath.item])
     }
 }
-

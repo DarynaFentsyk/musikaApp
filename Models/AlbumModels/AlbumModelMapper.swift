@@ -82,5 +82,3 @@ extension AlbumModelMapper: AlbumModelMapperProtocol {
         return album
     }
 }
-
-

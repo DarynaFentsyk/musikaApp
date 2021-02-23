@@ -1,21 +1,21 @@
-////
-////  TopAlbumsCollectionViewController.swift
-////  musikaApp
-////
-////  Created by Daryna Fentsyk on 30.11.20.
-////
 //
-//import UIKit
-//import Alamofire
-//import AlamofireImage
-//import RealmSwift
+//  TopAlbumsCollectionViewController.swift
+//  musikaApp
+//
+//  Created by Daryna Fentsyk on 30.11.20.
 //
 //
-//var albumNames: [TopAlbumDetails] = []
+// import UIKit
+// import Alamofire
+// import AlamofireImage
+// import RealmSwift
 //
-//private let reuseIdentifier = "TopAlbumsCollectionViewCell"
 //
-//class TopAlbumsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+// var albumNames: [TopAlbumDetails] = []
+//
+// private let reuseIdentifier = "TopAlbumsCollectionViewCell"
+//
+// class TopAlbumsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 //    var nameOfArtist = ""
 //    let imageCache = AutoPurgingImageCache(memoryCapacity: 111_111_111, preferredMemoryUsageAfterPurge: 90_000_000)
 //    
@@ -76,4 +76,4 @@
 //        detailedVC!.selectedSingerName = singerName
 //        detailedVC!.selectedAlbumPhoto = albumFoto
 //    }
-//}
+// }

@@ -68,5 +68,3 @@ extension DataBaseService: DataBaseServiceProtocol {
         self.realm.object(ofType: DBAlbumDetailsModel.self, forPrimaryKey: id) != nil
     }
 }
-
-

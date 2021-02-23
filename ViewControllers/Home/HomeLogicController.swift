@@ -31,7 +31,7 @@ extension HomeLogicController: HomeLogicControllerProtocol {
     
     func loadSavedAlbums() {
         
-        self.dependency.musicManager.getSavedAlbums{ [weak self] result in
+        self.dependency.musicManager.getSavedAlbums { [weak self] result in
             
             switch result {
             case.success(let albums):
@@ -44,7 +44,7 @@ extension HomeLogicController: HomeLogicControllerProtocol {
     
     func getArtists(name: String) {
         
-        self.dependency.musicManager.getArtist(artistName: name){ [weak self] result in
+        self.dependency.musicManager.getArtist(artistName: name) { [weak self] result in
             
             switch result {
             case .success(let artists):
