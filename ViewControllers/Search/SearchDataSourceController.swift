@@ -12,7 +12,11 @@ final class SearchDataSourceController: NSObject {
     typealias DidSelectClosure = (_ artist: ArtistModel) -> Void
     
     private weak var tableView: UITableView?
-    private var artists: [ArtistModel] = []
+    private var artists: [ArtistModel] = [] {
+        didSet {
+            self.tableView?.reloadData()
+        }
+    }
     var didSelectClosure: DidSelectClosure?
     
     func setUp(with tableView: UITableView) {
@@ -25,9 +29,7 @@ final class SearchDataSourceController: NSObject {
     }
     
     func updateArtist(withArtists artists: [ArtistModel]) {
-        
         self.artists = artists
-        self.tableView?.reloadData()
     }
 }
 
