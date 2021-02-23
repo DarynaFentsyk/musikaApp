@@ -38,7 +38,10 @@ extension AlbumDetailsDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TracksTableViewCell", for: indexPath) as! TracksTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TracksTableViewCell", for: indexPath) as? TracksTableViewCell  else {
+            return UITableViewCell()
+        }
+        
         let track = self.tracks[indexPath.row]
         let model = TracksTableViewCell.Model(index: indexPath.row + 1, title: track.name, duration: track.duration)
         cell.configure(model: model)
