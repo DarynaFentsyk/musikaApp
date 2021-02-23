@@ -43,13 +43,16 @@ final class HomeCollectionViewDataSource: NSObject {
 
 extension HomeCollectionViewDataSource: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.albums.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as! SearchCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
         let album = self.albums[indexPath.item]
         let cellModel = SearchCollectionViewCell.Model(imageURL: album.imageUrl, title: album.name)
         cell.configure(model: cellModel)
@@ -73,4 +76,3 @@ extension HomeCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
         self.didSelectClosure?(self.albums[indexPath.item])
     }
 }
-

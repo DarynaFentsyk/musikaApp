@@ -99,4 +99,3 @@ extension HomeViewController: HomeViewControllerProtocol {
         self.dataSource.updateArtist(withArtists: artists)
     }
 }
-

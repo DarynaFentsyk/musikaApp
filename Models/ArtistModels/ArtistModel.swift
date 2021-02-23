@@ -9,6 +9,6 @@ import Foundation
 
 struct ArtistModel {
     
-    let name:  String
+    let name: String
     let imageUrl: URL?
 }

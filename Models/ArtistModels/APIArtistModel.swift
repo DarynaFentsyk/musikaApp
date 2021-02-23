@@ -9,7 +9,7 @@ import Foundation
 
 struct APIArtistModel: Codable {
     
-    let name:  String
+    let name: String
     let images: [APIImageModel]?
     
     enum CodingKeys: String, CodingKey {
@@ -18,4 +18,3 @@ struct APIArtistModel: Codable {
         case images = "image"
     }
 }
-

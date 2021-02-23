@@ -7,17 +7,17 @@
 
 import Alamofire
 
-typealias ResultHandler<T, Error: Swift.Error> = (Swift.Result<T,Error>) -> Void
+typealias ResultHandler<T, Error: Swift.Error> = (Swift.Result<T, Error>) -> Void
 typealias ErrorHandler = (_ error: Error?) -> Void
 
 protocol NetworkLayerProtocol {
     
-    func getObject<T:Codable>(path: String, keyPath: String?, completion: @escaping ResultHandler<T,Error>)
+    func getObject<T: Codable>(path: String, keyPath: String?, completion: @escaping ResultHandler<T, Error>)
 }
 
 final class NetworkLayer: NetworkLayerProtocol {
     
-    func getObject<T:Codable>(path: String, keyPath: String?, completion: @escaping ResultHandler<T,Error>) {
+    func getObject<T: Codable>(path: String, keyPath: String?, completion: @escaping ResultHandler<T, Error>) {
         
         AF.request(path).responseData { (response) in
             

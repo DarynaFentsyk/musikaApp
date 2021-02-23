@@ -16,7 +16,7 @@ final class AlbumDetailsDataSource: NSObject {
         super .init()
         
         self.tableView = tableView
-        self.tableView.register((UINib(nibName: "TracksTableViewCell" , bundle: nil)), forCellReuseIdentifier: "TracksTableViewCell")
+        self.tableView.register((UINib(nibName: "TracksTableViewCell", bundle: nil)), forCellReuseIdentifier: "TracksTableViewCell")
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 100
@@ -33,12 +33,15 @@ final class AlbumDetailsDataSource: NSObject {
 extension AlbumDetailsDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tracks.count 
+        return self.tracks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TracksTableViewCell", for: indexPath) as! TracksTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TracksTableViewCell", for: indexPath) as? TracksTableViewCell  else {
+            return UITableViewCell()
+        }
+        
         let track = self.tracks[indexPath.row]
         let model = TracksTableViewCell.Model(index: indexPath.row + 1, title: track.name, duration: track.duration)
         cell.configure(model: model)

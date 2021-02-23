@@ -9,6 +9,7 @@ target 'musikaApp' do
   pod 'Alamofire', '~> 5.2'
   pod 'RealmSwift', '~> 10.1.4'
   pod 'AlamofireImage', '~> 4.1'
+  pod 'SwiftLint'
   
 
 end

@@ -27,7 +27,7 @@ class AlbumHeaderView: UIView {
         return view
     }
     
-    var viewHeight: CGFloat{
+    var viewHeight: CGFloat {
         
         let screenWidth = UIScreen.main.bounds.width
         let arrangedSubview = self.horizontalStackView.arrangedSubviews.count
@@ -55,5 +55,3 @@ extension AlbumHeaderView: ViewConfigurable {
         self.imageView.imgUrl = model.imageUrl
     }
 }
-
-

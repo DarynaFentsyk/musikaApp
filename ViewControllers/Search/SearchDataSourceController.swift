@@ -41,7 +41,10 @@ extension SearchDataSourceController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as? SearchTableViewCell else {
+            return UITableViewCell()
+        }
+        
         let artist = self.artists[indexPath.row]
         let cellModel = SearchTableViewCell.Model(imageURL: artist.imageUrl, title: artist.name)
         cell.configure(model: cellModel)
