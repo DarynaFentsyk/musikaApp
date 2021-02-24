@@ -34,6 +34,7 @@ final class TopAlbumsCollectionViewController: BaseViewController {
     
     static func make(logicController: TopAlbumsLogicControllerProtocol) -> TopAlbumsCollectionViewControllerProtocol {
         
+        // swiftlint:disable:next force_cast
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TopAlbumsCollectionViewController") as! TopAlbumsCollectionViewController
         logicController.view = vc
         vc.logicController = logicController

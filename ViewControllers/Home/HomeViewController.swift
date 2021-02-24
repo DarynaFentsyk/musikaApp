@@ -48,6 +48,7 @@ final class HomeViewController: BaseViewController {
     
     static func make(logicController: HomeLogicControllerProtocol) -> HomeViewControllerProtocol {
         
+        // swiftlint:disable:next force_cast
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         logicController.view = vc
         vc.logicController = logicController

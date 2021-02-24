@@ -56,6 +56,7 @@ final class AlbumDetailsViewController: BaseViewController {
     
     static func make(logicController: AlbumDetailsLogicControllerProtocol) -> AlbumDetailsViewController {
         
+        // swiftlint:disable:next force_cast
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlbumDetailsViewController") as! AlbumDetailsViewController
         logicController.view = vc
         vc.logicController = logicController
